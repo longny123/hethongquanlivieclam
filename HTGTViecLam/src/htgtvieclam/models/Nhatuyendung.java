@@ -20,6 +20,11 @@ public class Nhatuyendung {
         this.tennhatuyendung = ten;
         this.sdt = sdt;
     }
+    
+     public Nhatuyendung(int id, String ten, int sdt,String tendangnhap){
+        this(id,ten,sdt);
+        this.tendangnhap = tendangnhap;
+    }
 
     /**
      * @return the idnhatuyendung

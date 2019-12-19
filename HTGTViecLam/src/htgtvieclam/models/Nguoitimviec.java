@@ -35,6 +35,12 @@ public class Nguoitimviec {
         this.tienganh = tienganh;
         this.tinhoc = tinhoc;
     }
+    
+     public Nguoitimviec(int idnguoitimviec, String ho, 
+            String ten, int sdt,String diachi, String hocvan, String kinhnghiem,int tienganh, int tinhoc,String tendangnhap){
+        this(idnguoitimviec,ho,ten,sdt,diachi,hocvan,kinhnghiem,tienganh,tinhoc);
+        this.tendangnhap = tendangnhap;
+    }
     /**
      * @return the idnguoitimviec
      */
