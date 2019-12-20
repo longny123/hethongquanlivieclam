@@ -8,7 +8,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="352.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="Nhà Tuyển Dụng" />
@@ -32,10 +31,10 @@
             <TextField promptText="Nhập mật khẩu" />
          </children>
       </HBox>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox prefHeight="100.0" prefWidth="200.0" styleClass="dn_dk_button">
          <children>
-            <Button mnemonicParsing="false" text="ĐĂNG NHẬP" />
-            <Button mnemonicParsing="false" text="ĐĂNG KÝ" />
+            <Button mnemonicParsing="false" styleClass="DangNhapNTD" text="ĐĂNG NHẬP" />
+            <Button mnemonicParsing="false" styleClass="DangKiNTD" text="ĐĂNG KÝ" />
          </children>
       </HBox>
    </children>
