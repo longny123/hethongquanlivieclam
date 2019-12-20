@@ -41,7 +41,7 @@ HBox.DangNhap {
     -fx-spacing: 20;
 }
 
-HBox.dn_user, HBox.dn_pass {
+HBox.dn_user, HBox.dn_pass, HBox.dn_dk_button {
     -fx-alignment: CENTER;
     -fx-spacing: 2;
 }
@@ -60,6 +60,10 @@ Text.lbName {
 
 Button:hover {
     -fx-background-color: red;
+}
+
+Button.DangNhapNTD, Button.DangKiNTD {
+    -fx-text-fill: white;
 }
 
 MenuBar.ntvMenu {

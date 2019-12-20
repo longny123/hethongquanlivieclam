@@ -18,7 +18,7 @@ import javafx.scene.text.Text;
  *
  * @author BTS4LIFE
  */
-public class FXMLDocumentController implements Initializable {
+public class FXMLDangNhapController implements Initializable {
     
     @FXML
     private Button btnQtv;
