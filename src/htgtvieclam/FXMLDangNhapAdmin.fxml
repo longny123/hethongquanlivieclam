@@ -10,7 +10,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="227.0" prefWidth="352.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="Quản trị viên " />
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="Quản trị viên" />
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="dn_user">
          <children>
             <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -34,7 +34,7 @@
       <HBox prefHeight="100.0" prefWidth="200.0" styleClass="dn_dk_button">
          <children>
             <Button mnemonicParsing="false" styleClass="DangNhapNTD" text="ĐĂNG NHẬP" />
-            <Button mnemonicParsing="false" styleClass="DangKiNTD" text="ĐĂNG KÝ" />
+            <Button mnemonicParsing="false" prefHeight="29.0" prefWidth="96.0" styleClass="DangKiNTD" text="ĐĂNG KÝ" />
          </children>
       </HBox>
    </children>

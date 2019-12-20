@@ -7,10 +7,6 @@ package htgtvieclam;
 
 import java.util.Optional;
 import javafx.application.Application;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -25,7 +21,7 @@ public class HTGTViecLam extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangKi.fxml"));
         
         Scene scene = new Scene(root);
         

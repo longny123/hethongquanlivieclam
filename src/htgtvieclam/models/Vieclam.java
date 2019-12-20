@@ -29,7 +29,7 @@ public class Vieclam {
     public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi,int idnhatuyendung, int iddangmuc){
         this(idvieclam,ten,vitri,luong,diachi);
         this.idnhatuyendung = idnhatuyendung;
-        this.iddangmuc;
+        this.iddangmuc = iddangmuc;
     }
 
     /**

@@ -41,7 +41,7 @@ HBox.DangNhap {
     -fx-spacing: 20;
 }
 
-HBox.dn_user, HBox.dn_pass {
+HBox.dn_user, HBox.dn_pass, HBox.dn_dk_button {
     -fx-alignment: CENTER;
     -fx-spacing: 2;
 }
@@ -62,9 +62,49 @@ Button:hover {
     -fx-background-color: red;
 }
 
+Button.DangNhapNTD, Button.DangKiNTD {
+    -fx-text-fill: white;
+}
+
 MenuBar.ntvMenu {
     -fx-alignment:BASELINE_LEFT;
 }
 
+/*
+Đăng ký nhà tuyển dụng
+*/
 
+VBox.DangKy {
+    -fx-alignment: CENTER;
+    -fx-font: "Tahoma";
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-background-color: lightblue;
+    -fx-font-size:30;
+}
+
+Text.dangkyntd {
+    -fx-font-size: 20;
+}
+
+Text.sao {
+    -fx-font-size: 20;
+    -fx-fill: red;
+}
+
+Text.dkntd {
+    -fx-alignment: CENTER;
+    -fx-fill: blue;
+    -fx-stroke: black;
+    -fx-stroke-width: 0.8;
+    -fx-font-size: 30;
+}
+
+.textFieldNTD {
+    -fx-font-size: 16;
+}
+
+Button.ButtonNTD{
+    -fx-font-size: 20;    
+}
 

@@ -14,7 +14,7 @@ import javafx.fxml.Initializable;
  *
  * @author BTS4LIFE
  */
-public class FXMLAdminController implements Initializable {
+public class FXMLDangNhapAdminController implements Initializable {
 
     /**
      * Initializes the controller class.
