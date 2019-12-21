@@ -35,7 +35,7 @@ public class FXMLTrangChuNTVController implements Initializable {
         // TODO
     }    
     
-    public void hienThiTrangChuNTDcontroller (ActionEvent event) throws IOException {
+    public void hienThiTrangChuNTD(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDangKi.fxml"));
         Stage stage = new Stage();
         
