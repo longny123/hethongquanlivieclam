@@ -16,7 +16,7 @@ public class Vieclam {
     private int luong;
     private String diachi;
     private int idnhatuyendung;
-    private int iddangmuc;
+    private int iddanhmuc;
     
     public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi){
         this.idvieclam = idvieclam;
@@ -25,11 +25,15 @@ public class Vieclam {
         this.luong = luong;
         this.diachi = diachi;
     }
+      public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi, int iddangmuc){
+        this(idvieclam,ten,vitri,luong,diachi);
+        this.iddanhmuc = iddangmuc;
+    }
     
     public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi,int idnhatuyendung, int iddangmuc){
         this(idvieclam,ten,vitri,luong,diachi);
         this.idnhatuyendung = idnhatuyendung;
-        this.iddangmuc = iddangmuc;
+        this.iddanhmuc = iddangmuc;
     }
 
     /**
@@ -117,16 +121,16 @@ public class Vieclam {
     }
 
     /**
-     * @return the iddangmuc
+     * @return the iddanhmuc
      */
-    public int getIddangmuc() {
-        return iddangmuc;
+    public int getIddanhmuc() {
+        return iddanhmuc;
     }
 
     /**
-     * @param iddangmuc the iddangmuc to set
+     * @param iddanhmuc the iddanhmuc to set
      */
-    public void setIddangmuc(int iddangmuc) {
-        this.iddangmuc = iddangmuc;
+    public void setIddanhmuc(int iddanhmuc) {
+        this.iddanhmuc = iddanhmuc;
     }
 }

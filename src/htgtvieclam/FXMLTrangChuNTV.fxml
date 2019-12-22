@@ -35,8 +35,8 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtNTV" text="Hệ thống giới thiệu việc làm" wrappingWidth="509.90625" />
             <Label text="Người tìm việc" textFill="#162140" />
-            <TextField prefHeight="17.0" prefWidth="590.0" promptText="Nhập tên công việc " />
-            <ComboBox prefHeight="44.0" prefWidth="775.0" promptText="Chọn ngành nghề">
+            <TextField fx:id="txtTimviec" prefHeight="17.0" prefWidth="590.0" promptText="Nhập tên công việc " />
+            <ComboBox fx:id="cbDanhmuc" prefHeight="44.0" prefWidth="775.0" promptText="Chọn ngành nghề">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
@@ -44,7 +44,7 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <TableView prefHeight="340.0" prefWidth="590.0">
+            <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
                <columns>
                   <TableColumn prefWidth="161.0" text="Tên việc làm" />
                   <TableColumn prefWidth="178.0" text="Nhà tuyển dụng" />
