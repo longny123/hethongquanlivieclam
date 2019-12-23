@@ -25,15 +25,15 @@ public class Vieclam {
         this.luong = luong;
         this.diachi = diachi;
     }
-      public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi, int iddangmuc){
+      public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi, int iddanhmuc){
         this(idvieclam,ten,vitri,luong,diachi);
-        this.iddanhmuc = iddangmuc;
+        this.iddanhmuc = iddanhmuc;
     }
     
-    public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi,int idnhatuyendung, int iddangmuc){
+    public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi,int idnhatuyendung, int iddanhmuc){
         this(idvieclam,ten,vitri,luong,diachi);
         this.idnhatuyendung = idnhatuyendung;
-        this.iddanhmuc = iddangmuc;
+        this.iddanhmuc = iddanhmuc;
     }
 
     /**

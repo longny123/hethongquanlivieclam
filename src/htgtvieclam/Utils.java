@@ -124,16 +124,13 @@ public class Utils {
         
         conn.commit();
        }
-        public static List<Vieclam> getViecLam(String kw, boolean isPractice, int numQuestion) throws SQLException {
+        public static List<Vieclam> getViecLam(String kw) throws SQLException {
         Connection conn = HibernateUtils.getConn();
         String sql = "SELECT * FROM vieclam";
         
         if (kw.equals("") == false) {
             sql += " WHERE content like ?";
         }
-        
-        if (isPractice == true)
-            sql += " ORDER BY rand() LIMIT " + numQuestion;
           
         PreparedStatement stm = conn.prepareStatement(sql);
         if (kw.equals("") == false)
@@ -143,9 +140,8 @@ public class Utils {
         
         List<Vieclam> r = new ArrayList<>();
         while (rs.next()) {
-            Vieclam q = new Vieclam(rs.getString("id"), 
-                    rs.getString("content"), rs.getInt("category_id"));
-            q.setChoices((ArrayList<Choice>) getChoices(q.getId()));
+            Vieclam q = new Vieclam(rs.getInt("idvieclam"), 
+                    rs.getString("ten"), rs.getString("vitri"),rs.getInt("luong"),rs.getString("Diachi"));
             r.add(q);
         }
         
