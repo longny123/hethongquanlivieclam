@@ -50,7 +50,7 @@ public class FXMLDangKyNTDController implements Initializable {
             tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Nhà tuyển dụng");
         else if (txttendangnhap.getText() == null){
             alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thieuesn tên đăng nhập");
+            alert.setContentText("Thiếu tên đăng nhập");
         }
         else if (txtmatkhau.getText() == null){
             alert = new Alert(Alert.AlertType.ERROR);

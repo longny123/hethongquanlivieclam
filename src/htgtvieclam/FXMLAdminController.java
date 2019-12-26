@@ -8,9 +8,9 @@ package htgtvieclam;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.ResultSet;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,23 +23,20 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
  *
- * @author BTS4LIFE
+ * @author longn
  */
-public class FXMLDangNhapAdminController implements Initializable {
+public class FXMLAdminController implements Initializable{
     @FXML
     private TextField txttendangnhap;
     @FXML
     private TextField txtmatkhau;
-
-    /**
-     * Initializes the controller class.
-     */
+    @FXML
+    private Button btndangnhap;
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
     public void DangNhapHandler(ActionEvent event) throws SQLException, IOException{
         Connection conn = HibernateUtils.getConn();
         Statement stm = conn.createStatement();
@@ -61,4 +58,5 @@ public class FXMLDangNhapAdminController implements Initializable {
         }
         
     }
+    
 }
