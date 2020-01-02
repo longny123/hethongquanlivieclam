@@ -5,32 +5,53 @@
  */
 package htgtvieclam;
 
+
+import htgtvieclam.pojo.Vieclam;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.security.auth.login.AppConfigurationEntry;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
 
 /**
  *
  * @author longn
  */
 public class HibernateUtils {
-    public static Connection CONN;
-    static{
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            
-            CONN = DriverManager.getConnection("jdbc:mysql://localhost/hethonggtvl",
-                    "root", "123456");
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(HibernateUtils.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-                Logger.getLogger(HibernateUtils.class.getName()).log(Level.SEVERE, null, ex);
-            }
-    }
+//    public static Connection CONN;
+//    static{
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//            
+//            CONN = DriverManager.getConnection("jdbc:mysql://localhost/hethonggtvl",
+//                    "root", "123456");
+//        } catch (ClassNotFoundException ex) {
+//            Logger.getLogger(HibernateUtils.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLException ex) {
+//                Logger.getLogger(HibernateUtils.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//    }
+//    
+//     public static Connection getConn() {
+//        return CONN;
+//    }
+    private static SessionFactory factory;
     
-     public static Connection getConn() {
-        return CONN;
+    static {
+        Configuration configure = new Configuration();
+        configure.addAnnotatedClass(Vieclam.class);
+        configure.configure("hibernate.cfg.xml");
+        StandardServiceRegistryBuilder builder
+            = new StandardServiceRegistryBuilder().applySettings(configure.getProperties());
+        factory = configure.buildSessionFactory(builder.build());
+} 
+    
+    public static SessionFactory getSessionFactory(){
+        return factory;
     }
 }
