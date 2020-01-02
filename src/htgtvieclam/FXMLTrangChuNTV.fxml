@@ -25,8 +25,7 @@
                </items></Menu>
           <Menu mnemonicParsing="false" onAction="#hienThiTrangChuNTDcontroller" text="Truy cập ">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Nhà tuyển dụng" />
-                  <MenuItem mnemonicParsing="false" text="Quản trị viên " />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Trang nhà tuyển dụng" />
                </items></Menu>
         </menus>
       </MenuBar>
