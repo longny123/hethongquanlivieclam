@@ -86,7 +86,10 @@ public class FXMLTrangChuNTVController implements Initializable {
 //        } catch (SQLException ex) {
 //            Logger.getLogger(FXMLTrangChuNTVController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
-        
+         this.txtTimviec.textProperty().addListener(p -> {
+            this.tvVieclam.getItems().clear();
+            this.tvVieclam.setItems(FXCollections.observableArrayList(Utils.getVieclam(this.txtTimviec.getText())));
+        });
     }    
     
 //      private void getDanhMuc() throws SQLException{

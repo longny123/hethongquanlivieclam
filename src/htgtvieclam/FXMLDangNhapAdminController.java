@@ -5,12 +5,15 @@
  */
 package htgtvieclam;
 
+import htgtvieclam.pojo.Taikhoan;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Iterator;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +24,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  * FXML Controller class
@@ -28,6 +36,7 @@ import javafx.stage.Stage;
  * @author BTS4LIFE
  */
 public class FXMLDangNhapAdminController implements Initializable {
+    private static SessionFactory factory;
     @FXML
     private TextField txttendangnhap;
     @FXML
@@ -41,24 +50,47 @@ public class FXMLDangNhapAdminController implements Initializable {
         // TODO
     }    
     public void DangNhapHandler(ActionEvent event) throws SQLException, IOException{
-        Connection conn = HibernateUtils.getConn();
-        Statement stm = conn.createStatement();
-        
-        ResultSet rs = stm.executeQuery("select * from taikhoan");
-        while (rs.next()){
-            String tendangnhap = rs.getString("tedangnhap");
-            String matkhau = rs.getString("matkhau");
-            String loainguoidung = rs.getString("loainguoidung");
-            
-            if (this.txttendangnhap.toString() == tendangnhap && this.txtmatkhau.toString() == matkhau && loainguoidung == "admin"){
-                Parent root = FXMLLoader.load(getClass().getResource("FXMLQuestionManagement.fxml"));
-                Scene scene = new Scene(root);
+        Session session = factory.openSession();
+        Transaction trans = null;
+        try {
+            trans = session.beginTransaction();
+            Query q = session.createQuery("from taikhoan");
+            List taikhoan = q.list();
+            Iterator iterator = taikhoan.iterator();
+            while (iterator.hasNext()){
+                    Taikhoan tk = (Taikhoan)iterator.next();
+                    if (this.txttendangnhap.toString() == tk.getTendangnhap() && this.txtmatkhau.toString() == tk.getMatkhau() && tk.getLoainguoidung() == "admin"){
+                    Parent root = FXMLLoader.load(getClass().getResource("FXMLQuestionManagement.fxml"));
+                    Scene scene = new Scene(root);
 
-                Stage stage = new Stage();
-                stage.setScene(scene);
-                stage.show();
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.show();
+                }
             }
-        }
+       }
+        catch (HibernateException ex){
+                if (trans != null)
+                    trans.rollback();;
+                System.err.println(ex.getMessage());
+            }
+            finally{session.close();}
+        
+//        ResultSet rs = stm.executeQuery("select * from taikhoan");
+//        while (rs.next()){
+//            String tendangnhap = rs.getString("tedangnhap");
+//            String matkhau = rs.getString("matkhau");
+//            String loainguoidung = rs.getString("loainguoidung");
+//            
+//            if (this.txttendangnhap.toString() == tendangnhap && this.txtmatkhau.toString() == matkhau && loainguoidung == "admin"){
+//                Parent root = FXMLLoader.load(getClass().getResource("FXMLQuestionManagement.fxml"));
+//                Scene scene = new Scene(root);
+//
+//                Stage stage = new Stage();
+//                stage.setScene(scene);
+//                stage.show();
+//            }
+//        }
         
     }
 }

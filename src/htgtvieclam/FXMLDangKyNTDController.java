@@ -13,6 +13,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 /**
  * FXML Controller class
@@ -20,7 +24,7 @@ import javafx.scene.control.TextField;
  * @author DELL
  */
 public class FXMLDangKyNTDController implements Initializable {
-
+    private static SessionFactory factory;
     /**
      * Initializes the controller class.
      */
@@ -44,10 +48,27 @@ public class FXMLDangKyNTDController implements Initializable {
     }    
     
     public void DangKyHanler (ActionEvent event){
+
+        Session session = factory.openSession();
+        Transaction trans = null;
+        
         Taikhoan tk;
         Alert alert = null;
         if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
-            tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Nhà tuyển dụng");
+        {
+            try{
+                trans = session.beginTransaction();
+                tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Nhà tuyển dụng");
+                session.save(tk);
+                trans.commit();
+            }
+            catch (HibernateException ex){
+                if (trans != null)
+                    trans.rollback();;
+                System.err.println(ex.getMessage());
+            }
+            finally{session.close();}
+        }
         else if (txttendangnhap.getText() == null){
             alert = new Alert(Alert.AlertType.ERROR);
             alert.setContentText("Thiếu tên đăng nhập");
@@ -77,4 +98,8 @@ public class FXMLDangKyNTDController implements Initializable {
             alert.setContentText("Thiếu số điện thoại");
         }
     }
-}
+
+}      
+
+            
+
