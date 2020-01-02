@@ -5,7 +5,7 @@
  */
 package htgtvieclam;
 
-import htgtvieclam.models.Taikhoan;
+import htgtvieclam.pojo.Taikhoan;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;

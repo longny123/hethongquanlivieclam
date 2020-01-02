@@ -46,11 +46,11 @@
                </cursor></ComboBox>
             <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
                <columns>
-                  <TableColumn prefWidth="161.0" text="Tên việc làm" />
-                  <TableColumn prefWidth="178.0" text="Nhà tuyển dụng" />
-                  <TableColumn prefWidth="120.0" text="Mức lương " />
-                  <TableColumn prefWidth="130.0" text="Tỉnh thành " />
-                  <TableColumn prefWidth="166.0" text="Ngày đăng tin" />
+                  <TableColumn fx:id="colTenVL" prefWidth="161.0" text="Tên việc làm" />
+                  <TableColumn fx:id="colNhaTuyenDung" prefWidth="178.0" text="Nhà tuyển dụng" />
+                  <TableColumn fx:id="colLuong" prefWidth="120.0" text="Mức lương " />
+                  <TableColumn fx:id="colTinhThanh" prefWidth="130.0" text="Tỉnh thành " />
+                  <TableColumn fx:id="colNgayDang" prefWidth="166.0" text="Ngày đăng tin" />
                </columns>
             </TableView>
          </children>
