@@ -5,13 +5,23 @@
  */
 package htgtvieclam.pojo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author longn
  */
+@Entity
+@Table(name = "danhmucnganhnghe")
 public class Danhmucnganhnghe {
+    @Id
+    @Column(name = "iddanhmucnganhnghe")
     private int iddanhmucnganhnghe;
+    @Column(name = "tendanhmuc")
     private String tendanhmuc;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_danhmuc")
+    private QLthongtindk qlthongtindk;
     
     public Danhmucnganhnghe(int id, String ten){
         this.iddanhmucnganhnghe = id;

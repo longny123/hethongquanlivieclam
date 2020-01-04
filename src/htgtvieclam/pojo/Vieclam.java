@@ -7,6 +7,7 @@ package htgtvieclam.pojo;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.*;
+import static org.hibernate.FetchMode.LAZY;
 /**
  *
  * @author longn
@@ -26,10 +27,21 @@ public class Vieclam implements Serializable{
     private String diachi;
     @Column(name = "ngaydang")
     private Date ngaydang;
-    @Id
-    private int idnhatuyendung;
-    @Id
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idnhatuyendung")
+    private Nhatuyendung nhatuyendung;
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idvieclam")
+    private QLthongtintuyendung qlthongtintuyendung;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "iddungmuc")
     private Danhmucnganhnghe danhmucnganhnghe;
+    
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idvieclam")
+    private QLthongtindk qlthongtindk;
     
     public Vieclam(){}
   
@@ -40,11 +52,6 @@ public class Vieclam implements Serializable{
         this.vitri = vitri;
         this.luong = luong;
         this.diachi = diachi;
-    }
-    
-    public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi,int idnhatuyendung){
-        this(idvieclam,ten,vitri,luong,diachi);
-        this.idnhatuyendung = idnhatuyendung;
     }
     
     public String getCateNameView() {
@@ -123,16 +130,6 @@ public class Vieclam implements Serializable{
     /**
      * @return the idnhatuyendung
      */
-    public int getIdnhatuyendung() {
-        return idnhatuyendung;
-    }
-
-    /**
-     * @param idnhatuyendung the idnhatuyendung to set
-     */
-    public void setIdnhatuyendung(int idnhatuyendung) {
-        this.idnhatuyendung = idnhatuyendung;
-    }
 
     /**
      * @return the ngaydang
