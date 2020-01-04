@@ -5,25 +5,36 @@
  */
 package htgtvieclam.pojo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author longn
  */
+@Entity
+@Table(name = "nhatuyendung")
 public class Nhatuyendung {
+    @Id
+    @Column(name = "idnhatuyendung")
     private int idnhatuyendung;
+    @Column(name = "tennhatuyendung")
     private String tennhatuyendung;
+    @Column(name = "sdt")
     private int sdt;
-    private String tendangnhap;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idvieclam")
+    private Vieclam vieclam;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idnhatuyendung")
+    private QLthongtintuyendung qlthongtintuyendung;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tendangnhap")
+    private Taikhoan taikhoan;
     
     public Nhatuyendung(int id, String ten, int sdt){
         this.idnhatuyendung = id;
         this.tennhatuyendung = ten;
         this.sdt = sdt;
-    }
-    
-     public Nhatuyendung(int id, String ten, int sdt,String tendangnhap){
-        this(id,ten,sdt);
-        this.tendangnhap = tendangnhap;
     }
 
     /**
@@ -69,16 +80,44 @@ public class Nhatuyendung {
     }
 
     /**
-     * @return the tendangnhap
+     * @return the vieclam
      */
-    public String getTendangnhap() {
-        return tendangnhap;
+    public Vieclam getVieclam() {
+        return vieclam;
     }
 
     /**
-     * @param tendangnhap the tendangnhap to set
+     * @param vieclam the vieclam to set
      */
-    public void setTendangnhap(String tendangnhap) {
-        this.tendangnhap = tendangnhap;
+    public void setVieclam(Vieclam vieclam) {
+        this.vieclam = vieclam;
+    }
+
+    /**
+     * @return the qlthongtintuyendung
+     */
+    public QLthongtintuyendung getQlthongtintuyendung() {
+        return qlthongtintuyendung;
+    }
+
+    /**
+     * @param qlthongtintuyendung the qlthongtintuyendung to set
+     */
+    public void setQlthongtintuyendung(QLthongtintuyendung qlthongtintuyendung) {
+        this.qlthongtintuyendung = qlthongtintuyendung;
+    }
+
+    /**
+     * @return the taikhoan
+     */
+    public Taikhoan getTaikhoan() {
+        return taikhoan;
+    }
+
+    /**
+     * @param taikhoan the taikhoan to set
+     */
+    public void setTaikhoan(Taikhoan taikhoan) {
+        this.taikhoan = taikhoan;
     }
 }

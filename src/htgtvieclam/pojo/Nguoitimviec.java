@@ -5,23 +5,39 @@
 // */
 package htgtvieclam.pojo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author longn
- */
+ */@Entity
+ @Table(name = "nguoitimviec")
 public class Nguoitimviec {
-
-    
+    @Id
+    @Column(name = "idnguoitimviec")
     private int idnguoitimviec;
+    @Column(name = "ho")
     private String ho;
+    @Column(name = "ten")
     private String ten;
+    @Column(name = "sdt")
     private int sdt;
+    @Column(name = "diachi")
     private String diachi;
+    @Column(name = "hocvan")
     private String hocvan;
+    @Column(name = "kinhnghiem")
     private String kinhnghiem;
+    @Column(name = "tienganh")
     private int tienganh;
+    @Column(name = "tinhoc")
     private int tinhoc;
-    private String tendangnhap;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "taikhoan")
+    private Taikhoan taikhoan;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "qlthongtindk")
+    private QLthongtindk qlthongtindk;
     
     public Nguoitimviec(int idnguoitimviec, String ho, 
             String ten, int sdt,String diachi, String hocvan, String kinhnghiem,int tienganh, int tinhoc){
@@ -34,12 +50,6 @@ public class Nguoitimviec {
         this.kinhnghiem = kinhnghiem;
         this.tienganh = tienganh;
         this.tinhoc = tinhoc;
-    }
-    
-     public Nguoitimviec(int idnguoitimviec, String ho, 
-            String ten, int sdt,String diachi, String hocvan, String kinhnghiem,int tienganh, int tinhoc,String tendangnhap){
-        this(idnguoitimviec,ho,ten,sdt,diachi,hocvan,kinhnghiem,tienganh,tinhoc);
-        this.tendangnhap = tendangnhap;
     }
     /**
      * @return the idnguoitimviec
@@ -168,16 +178,30 @@ public class Nguoitimviec {
     }
 
     /**
-     * @return the tendangnhap
+     * @return the taikhoan
      */
-    public String getTendangnhap() {
-        return tendangnhap;
+    public Taikhoan getTaikhoan() {
+        return taikhoan;
     }
 
     /**
-     * @param tendangnhap the tendangnhap to set
+     * @param taikhoan the taikhoan to set
      */
-    public void setTendangnhap(String tendangnhap) {
-        this.tendangnhap = tendangnhap;
+    public void setTaikhoan(Taikhoan taikhoan) {
+        this.taikhoan = taikhoan;
+    }
+
+    /**
+     * @return the qlthongtindk
+     */
+    public QLthongtindk getQlthongtindk() {
+        return qlthongtindk;
+    }
+
+    /**
+     * @param qlthongtindk the qlthongtindk to set
+     */
+    public void setQlthongtindk(QLthongtindk qlthongtindk) {
+        this.qlthongtindk = qlthongtindk;
     }
 }

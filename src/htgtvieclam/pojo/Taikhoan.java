@@ -5,14 +5,28 @@
  */
 package htgtvieclam.pojo;
 
+import javax.persistence.*;
+
 /**
  *
  * @author longn
  */
+@Entity
+@Table(name = "taikhoan")
 public class Taikhoan {
+    @Id
+    @Column(name = "tendangnhap")
     private String tendangnhap;
+    @Column(name = "matkhau")
     private String matkhau;
+    @Column(name = "loainguoidung")
     private String loainguoidung;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tendangnhap")
+    private Nguoitimviec nguoitimviec;
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "tendangnhap")
+    private Nhatuyendung nhatuyendung;
     
     public Taikhoan(String tendangnhap, String matkhau, String loainguuoidung){
         this.tendangnhap = tendangnhap;
@@ -60,5 +74,33 @@ public class Taikhoan {
      */
     public void setLoainguoidung(String loainguoidung) {
         this.loainguoidung = loainguoidung;
+    }
+
+    /**
+     * @return the nguoitimviec
+     */
+    public Nguoitimviec getNguoitimviec() {
+        return nguoitimviec;
+    }
+
+    /**
+     * @param nguoitimviec the nguoitimviec to set
+     */
+    public void setNguoitimviec(Nguoitimviec nguoitimviec) {
+        this.nguoitimviec = nguoitimviec;
+    }
+
+    /**
+     * @return the nhatuyendung
+     */
+    public Nhatuyendung getNhatuyendung() {
+        return nhatuyendung;
+    }
+
+    /**
+     * @param nhatuyendung the nhatuyendung to set
+     */
+    public void setNhatuyendung(Nhatuyendung nhatuyendung) {
+        this.nhatuyendung = nhatuyendung;
     }
 }
