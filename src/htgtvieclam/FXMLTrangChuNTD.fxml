@@ -13,19 +13,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="766.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLTrangChuNTVController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="766.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLTrangChuNTDController">
    <top>
       <MenuBar prefHeight="29.0" prefWidth="600.0">
         <menus>
           <Menu mnemonicParsing="false" text="Tài khoản">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Đăng nhập" />
-                  <MenuItem mnemonicParsing="false" text="Đăng kí" />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiDangNhap" text="Đăng nhập" />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiDangKi" text="Đăng kí" />
                   <MenuItem mnemonicParsing="false" text="Đăng xuất" />
                </items></Menu>
           <Menu mnemonicParsing="false" onAction="#hienThiTrangChuNTDcontroller" text="Truy cập ">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Trang người tìm việc" />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTV" text="Trang người tìm việc" />
                </items></Menu>
         </menus>
       </MenuBar>
@@ -44,11 +44,6 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor></ComboBox>
-            <ComboBox layoutX="15.0" layoutY="207.0" prefHeight="44.0" prefWidth="809.0" promptText="Chọn mức lương">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ComboBox>
             <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
                <columns>
                   <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên người tìm việc" />

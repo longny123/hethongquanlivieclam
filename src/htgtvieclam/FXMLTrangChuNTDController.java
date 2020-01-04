@@ -108,8 +108,80 @@ public class FXMLTrangChuNTDController implements Initializable {
 //    }
      
       
-    public void hienThiTrangChuNTD(ActionEvent event) throws IOException {
+    public void hienThiTrangChuNTV(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangChuNTV.fxml"));
+        Stage stage = new Stage();
+        
+        Scene scene = new Scene(root);
+        
+        Image image = new Image("htgtvieclam/icon/app_icon.png");
+        
+        stage.getIcons().add(image);        
+        stage.setTitle("Hệ thống giới thiệu việc làm");        
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+        
+        stage.setOnCloseRequest((WindowEvent we) -> {
+            we.consume();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Thông báo!");
+            
+            // Header Text: null
+            alert.setHeaderText(null);
+            alert.setContentText("Bạn có muốn thoát không ?");
+            
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            ButtonType btnHuy = new ButtonType("Hủy");
+            
+            alert.getButtonTypes().setAll(btnDongY, btnHuy);
+            
+            Optional<ButtonType> rs = alert.showAndWait();
+            
+            if (rs.get() == btnDongY) {
+                stage.close();
+            }
+        }); 
+    }
+    
+    public void hienThiDangKi(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDangKi.fxml"));
+        Stage stage = new Stage();
+        
+        Scene scene = new Scene(root);
+        
+        Image image = new Image("htgtvieclam/icon/app_icon.png");
+        
+        stage.getIcons().add(image);        
+        stage.setTitle("Hệ thống giới thiệu việc làm");        
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+        
+        stage.setOnCloseRequest((WindowEvent we) -> {
+            we.consume();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Thông báo!");
+            
+            // Header Text: null
+            alert.setHeaderText(null);
+            alert.setContentText("Bạn có muốn thoát không ?");
+            
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            ButtonType btnHuy = new ButtonType("Hủy");
+            
+            alert.getButtonTypes().setAll(btnDongY, btnHuy);
+            
+            Optional<ButtonType> rs = alert.showAndWait();
+            
+            if (rs.get() == btnDongY) {
+                stage.close();
+            }
+        }); 
+    }
+    
+    public void hienThiDangNhap(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangNhap.fxml"));
         Stage stage = new Stage();
         
         Scene scene = new Scene(root);
