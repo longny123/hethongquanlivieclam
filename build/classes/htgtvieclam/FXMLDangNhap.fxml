@@ -2,69 +2,93 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="329.0" prefWidth="676.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLDocumentController">
-   <children>
-      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="ĐĂNG NHẬP" />
-      <HBox prefHeight="194.0" prefWidth="608.0" styleClass="DangNhap">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="676.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLDangNhapController">
+   <center>
+      <VBox prefHeight="375.0" prefWidth="694.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="165.0" prefWidth="159.0">
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="329.0" prefWidth="676.0" stylesheets="@style.css">
                <children>
-                  <Text fx:id="txtQtv" styleClass="lbName" text="QUẢN TRỊ VIÊN" />
-                  <Button fx:id="btnQtv" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseEntered="#btnqtvOnMouseEnteredHandler" onMouseExited="#btnqtvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
-                     <graphic>
-                        <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@image/admin128px_2.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox prefHeight="150.0" prefWidth="128.0">
-               <children>
-                  <Text fx:id="txtNtv" styleClass="lbName" text="NGƯỜI TÌM VIỆC " />
-                  <Button fx:id="btnNtv" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseEntered="#btnntvMouseEnteredHandler" onMouseExited="#btnntvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
-                     <graphic>
-                        <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@image/admin128px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-               </children>
-            </VBox>
-            <VBox prefHeight="150.0" prefWidth="145.0">
-               <children>
-                  <Text fx:id="txtNtd" styleClass="lbName" text="NHÀ TUYỂN DỤNG" />
-                  <Button fx:id="btnNtd" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseEntered="#btnntdOnMouseEnteredHandler" onMouseExited="#btnntdvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
-                     <graphic>
-                        <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@image/nhatuyendung128px.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="ĐĂNG NHẬP" />
+                  <HBox prefHeight="194.0" prefWidth="608.0" styleClass="DangNhap">
+                     <children>
+                        <VBox prefHeight="165.0" prefWidth="159.0">
+                           <children>
+                              <Text fx:id="txtQtv" styleClass="lbName" text="QUẢN TRỊ VIÊN" />
+                              <Button fx:id="btnQtv" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangNhapAdmin" onMouseEntered="#btnqtvOnMouseEnteredHandler" onMouseExited="#btnqtvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
+                                 <graphic>
+                                    <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@image/admin128px_2.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="150.0" prefWidth="128.0">
+                           <children>
+                              <Text fx:id="txtNtv" styleClass="lbName" text="NGƯỜI TÌM VIỆC " />
+                              <Button fx:id="btnNtv" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangNhapNTV" onMouseEntered="#btnntvMouseEnteredHandler" onMouseExited="#btnntvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
+                                 <graphic>
+                                    <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@image/admin128px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="150.0" prefWidth="145.0">
+                           <children>
+                              <Text fx:id="txtNtd" styleClass="lbName" text="NHÀ TUYỂN DỤNG" />
+                              <Button fx:id="btnNtd" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiTrangChuNTD" onMouseEntered="#btnntdOnMouseEnteredHandler" onMouseExited="#btnntdvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
+                                 <graphic>
+                                    <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@image/nhatuyendung128px.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
-      </HBox>
-   </children>
-</VBox>
+      </VBox>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Truy cập">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Trang nhà tuyển dụng" />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTV" text="Trang người tìm việc" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

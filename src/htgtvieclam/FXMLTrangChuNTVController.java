@@ -37,7 +37,9 @@ import javafx.stage.WindowEvent;
 import org.hibernate.Session;
 import htgtvieclam.HibernateUtils;
 import java.util.UUID;
+import javafx.application.Platform;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -143,7 +145,7 @@ public class FXMLTrangChuNTVController implements Initializable {
             if (rs.get() == btnDongY) {
                 stage.close();
             }
-        }); 
+        });
     }
     
     public void hienThiDangNhap(ActionEvent event) throws IOException {

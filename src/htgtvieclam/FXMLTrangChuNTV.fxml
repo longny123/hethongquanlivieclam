@@ -23,7 +23,7 @@
                   <MenuItem mnemonicParsing="false" onAction="#hienThiDangKi" text="Đăng kí" />
                   <MenuItem mnemonicParsing="false" text="Đăng xuất" />
                </items></Menu>
-          <Menu mnemonicParsing="false" onAction="#hienThiTrangChuNTDcontroller" text="Truy cập ">
+          <Menu mnemonicParsing="false" text="Truy cập ">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Trang nhà tuyển dụng" />
                </items></Menu>
