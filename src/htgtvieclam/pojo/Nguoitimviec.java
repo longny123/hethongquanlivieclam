@@ -5,6 +5,7 @@
 // */
 package htgtvieclam.pojo;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -12,7 +13,7 @@ import javax.persistence.*;
  * @author longn
  */@Entity
  @Table(name = "nguoitimviec")
-public class Nguoitimviec {
+public class Nguoitimviec implements Serializable {
     @Id
     @Column(name = "idnguoitimviec")
     private int idnguoitimviec;
