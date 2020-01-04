@@ -81,7 +81,9 @@ DROP TABLE IF EXISTS `nhatuyendung`;
 CREATE TABLE `nhatuyendung` (
   `idnhatuyendung` int(11) NOT NULL,
   `tennhatuyendung` varchar(45) CHARACTER SET utf8 NOT NULL,
+  `tencongty` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `sdt` int(11) NOT NULL,
+  `thanhpho` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `tendangnhap` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`idnhatuyendung`),
   KEY `fk_nhatuyendung_taikhoan` (`tendangnhap`),
@@ -106,7 +108,7 @@ DROP TABLE IF EXISTS `qlthongtindk`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `qlthongtindk` (
-  `id_vieclam` int(11) NOT NULL,
+  `id_vieclam` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `id_danhmuc` int(11) NOT NULL,
   `id_nguoitimviec` int(11) NOT NULL,
   `ngaydangki` date NOT NULL,
@@ -136,7 +138,7 @@ DROP TABLE IF EXISTS `qlthongtintuyendung`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `qlthongtintuyendung` (
-  `idvieclam` int(11) NOT NULL,
+  `idvieclam` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `idnhatuyendung` int(11) NOT NULL,
   `ngaydangki` date NOT NULL,
   PRIMARY KEY (`idvieclam`,`idnhatuyendung`),
@@ -176,6 +178,7 @@ CREATE TABLE `taikhoan` (
 
 LOCK TABLES `taikhoan` WRITE;
 /*!40000 ALTER TABLE `taikhoan` DISABLE KEYS */;
+INSERT INTO `taikhoan` VALUES ('admin','admin','admin'),('quang','1','Người tìm việc'),('tan','1','Nhà tuyển dụng');
 /*!40000 ALTER TABLE `taikhoan` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -187,11 +190,12 @@ DROP TABLE IF EXISTS `vieclam`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `vieclam` (
-  `idvieclam` int(11) NOT NULL,
+  `idvieclam` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `tenvieclam` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `vitri` varchar(45) COLLATE utf8_unicode_ci NOT NULL,
   `luong` int(11) NOT NULL,
   `diachi` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `ngaydang` date NOT NULL,
   `id_nhatuyendung` int(11) NOT NULL,
   `id_danhmuc` int(11) NOT NULL,
   PRIMARY KEY (`idvieclam`),
@@ -224,4 +228,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-12-18 16:49:20
+-- Dump completed on 2020-01-04 14:37:21

@@ -60,7 +60,7 @@ public class FXMLDangNhapAdminController implements Initializable {
             while (iterator.hasNext()){
                     Taikhoan tk = (Taikhoan)iterator.next();
                     if (this.txttendangnhap.toString() == tk.getTendangnhap() && this.txtmatkhau.toString() == tk.getMatkhau() && tk.getLoainguoidung() == "admin"){
-                    Parent root = FXMLLoader.load(getClass().getResource("FXMLQuestionManagement.fxml"));
+                    Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangchuNTV.fxml"));
                     Scene scene = new Scene(root);
 
                     Stage stage = new Stage();
