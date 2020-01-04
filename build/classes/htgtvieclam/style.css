@@ -62,7 +62,7 @@ Button:hover {
     -fx-background-color: red;
 }
 
-Button.DangNhapNTD, Button.DangKiNTD {
+Button.DangNhapNTD, Button.DangKiNTD, Button.TrangChuNTV, Button.WhiteText {
     -fx-text-fill: white;
 }
 
@@ -108,3 +108,11 @@ Button.ButtonNTD{
     -fx-font-size: 20;    
 }
 
+HBox.TrangChuNTV, HBox.TrangChuNTD, HBox.DangNhapMenu, HBox.DangKiMenu {
+    -fx-padding: 3;
+    -fx-background-color: lightblue;
+}
+
+BorderPane { 
+    -fx-background-color: lightblue;
+}

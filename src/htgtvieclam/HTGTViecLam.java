@@ -21,7 +21,7 @@ public class HTGTViecLam extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangChuNTV.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangKy.fxml"));
         
         Scene scene = new Scene(root);
         
