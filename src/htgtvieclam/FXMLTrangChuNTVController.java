@@ -38,6 +38,7 @@ import org.hibernate.Session;
 import htgtvieclam.HibernateUtils;
 import java.util.UUID;
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableCell;
@@ -112,11 +113,12 @@ public class FXMLTrangChuNTVController implements Initializable {
 //    }
      
       
-    public void hienThiTrangChuNTD(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangChuNTD.fxml"));
-        Stage stage = new Stage();
-        
-        Scene scene = new Scene(root);
+    public void hienThiTrangChuNTD(ActionEvent event) throws IOException {   
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLTrangChuNTD.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
         Image image = new Image("htgtvieclam/icon/app_icon.png");
         
@@ -149,10 +151,11 @@ public class FXMLTrangChuNTVController implements Initializable {
     }
     
     public void hienThiDangNhap(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangNhap.fxml"));
-        Stage stage = new Stage();
-        
-        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLDangNhap.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
         Image image = new Image("htgtvieclam/icon/app_icon.png");
         
@@ -185,10 +188,11 @@ public class FXMLTrangChuNTVController implements Initializable {
     }
     
     public void hienThiDangKi(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangKi.fxml"));
-        Stage stage = new Stage();
-        
-        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLDangKy.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
         Image image = new Image("htgtvieclam/icon/app_icon.png");
         

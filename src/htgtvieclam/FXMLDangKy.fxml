@@ -2,9 +2,6 @@
 
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -12,36 +9,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLDangKiController">
-   <top>
-      <MenuBar BorderPane.alignment="CENTER">
-        <menus>
-          <Menu mnemonicParsing="false" text="Tài khoản">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#hienThiDangNhap" text="Đăng nhập" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Truy cập">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Trang nhà tuyển dụng " />
-                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTV" text="Trang người tìm việc" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </top>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="376.0" prefWidth="621.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLDangKyController">
    <center>
       <VBox prefHeight="316.0" prefWidth="601.0" BorderPane.alignment="CENTER">
          <children>
             <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="329.0" prefWidth="601.0" stylesheets="@style.css">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="ĐĂNG KÍ" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo" text="ĐĂNG KÝ" />
                   <HBox prefHeight="194.0" prefWidth="608.0" styleClass="DangNhap">
                      <children>
                         <VBox prefHeight="150.0" prefWidth="128.0">
                            <children>
                               <Text fx:id="txtNtv" styleClass="lbName" text="NGƯỜI TÌM VIỆC " />
-                              <Button fx:id="btnNtv" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangKiNTV" onMouseEntered="#btnntvMouseEnteredHandler" onMouseExited="#btnntvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
+                              <Button fx:id="btnNtv" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangKyNTV" onMouseEntered="#btnntvMouseEnteredHandler" onMouseExited="#btnntvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
                                  <graphic>
                                     <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -58,7 +38,7 @@
                         <VBox prefHeight="150.0" prefWidth="145.0">
                            <children>
                               <Text fx:id="txtNtd" styleClass="lbName" text="NHÀ TUYỂN DỤNG" />
-                              <Button fx:id="btnNtd" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangKiNTD" onMouseEntered="#btnntdOnMouseEnteredHandler" onMouseExited="#btnntdvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
+                              <Button fx:id="btnNtd" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangKyNTD" onMouseEntered="#btnntdOnMouseEnteredHandler" onMouseExited="#btnntdvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
                                  <graphic>
                                     <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -79,4 +59,13 @@
          </children>
       </VBox>
    </center>
+   <top>
+      <HBox prefHeight="30.0" prefWidth="200.0" styleClass="DangKiMenu" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#hienThiDangNhap" styleClass="WhiteText" text="ĐĂNG NHẬP" />
+            <Button layoutX="13.0" layoutY="13.0" mnemonicParsing="false" onAction="#hienThiTrangChuNTD" styleClass="WhiteText" text="TRANG NHÀ TUYỂN DỤNG" />
+            <Button layoutX="98.0" layoutY="13.0" mnemonicParsing="false" onAction="#hienThiTrangChuNTV" styleClass="WhiteText" text="TRANG NGƯỜI TÌM VIỆC" />
+         </children>
+      </HBox>
+   </top>
 </BorderPane>

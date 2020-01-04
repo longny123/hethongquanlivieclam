@@ -13,6 +13,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -29,7 +30,7 @@ import javafx.stage.WindowEvent;
  *
  * @author BTS4LIFE
  */
-public class FXMLDangKiController implements Initializable {
+public class FXMLDangKyController implements Initializable {
     
     @FXML
     private Button btnQtv;
@@ -89,10 +90,11 @@ public class FXMLDangKiController implements Initializable {
     }
     
     public void hienThiDangNhap(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangNhap.fxml"));
-        Stage stage = new Stage();
-        
-        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLDangNhap.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
         Image image = new Image("htgtvieclam/icon/app_icon.png");
         
@@ -125,10 +127,11 @@ public class FXMLDangKiController implements Initializable {
     }
     
     public void hienThiTrangChuNTD(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangChuNTD.fxml"));
-        Stage stage = new Stage();
-        
-        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLTrangChuNTD.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
         Image image = new Image("htgtvieclam/icon/app_icon.png");
         
@@ -161,46 +164,11 @@ public class FXMLDangKiController implements Initializable {
     }
     
     public void hienThiTrangChuNTV(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangChuNTV.fxml"));
-        Stage stage = new Stage();
-        
-        Scene scene = new Scene(root);
-        
-        Image image = new Image("htgtvieclam/icon/app_icon.png");
-        
-        stage.getIcons().add(image);        
-        stage.setTitle("Hệ thống giới thiệu việc làm");        
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
-        
-        stage.setOnCloseRequest((WindowEvent we) -> {
-            we.consume();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Thông báo!");
-            
-            // Header Text: null
-            alert.setHeaderText(null);
-            alert.setContentText("Bạn có muốn thoát không ?");
-            
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            ButtonType btnHuy = new ButtonType("Hủy");
-            
-            alert.getButtonTypes().setAll(btnDongY, btnHuy);
-            
-            Optional<ButtonType> rs = alert.showAndWait();
-            
-            if (rs.get() == btnDongY) {
-                stage.close();
-            }
-        }); 
-    }
-    
-    public void hienThiDangKiNTD(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangKiNTD.fxml"));
-        Stage stage = new Stage();
-        
-        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLTrangChuNTV.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
         Image image = new Image("htgtvieclam/icon/app_icon.png");
         
@@ -232,11 +200,49 @@ public class FXMLDangKiController implements Initializable {
         }); 
     }
     
-    public void hienThiDangKiNTV(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("FXMLDangKiNTV.fxml"));
-        Stage stage = new Stage();
+    public void hienThiDangKyNTD(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLDangKyNTD.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
-        Scene scene = new Scene(root);
+        Image image = new Image("htgtvieclam/icon/app_icon.png");
+        
+        stage.getIcons().add(image);        
+        stage.setTitle("Hệ thống giới thiệu việc làm");        
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+        
+        stage.setOnCloseRequest((WindowEvent we) -> {
+            we.consume();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Thông báo!");
+            
+            // Header Text: null
+            alert.setHeaderText(null);
+            alert.setContentText("Bạn có muốn thoát không ?");
+            
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            ButtonType btnHuy = new ButtonType("Hủy");
+            
+            alert.getButtonTypes().setAll(btnDongY, btnHuy);
+            
+            Optional<ButtonType> rs = alert.showAndWait();
+            
+            if (rs.get() == btnDongY) {
+                stage.close();
+            }
+        }); 
+    }
+    
+    public void hienThiDangKyNTV(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLDangKyNTV.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
         
         Image image = new Image("htgtvieclam/icon/app_icon.png");
         
