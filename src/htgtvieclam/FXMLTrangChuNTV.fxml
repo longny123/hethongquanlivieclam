@@ -19,8 +19,8 @@
         <menus>
           <Menu mnemonicParsing="false" text="Tài khoản">
                <items>
-                  <MenuItem mnemonicParsing="false" text="Đăng nhập" />
-                  <MenuItem mnemonicParsing="false" text="Đăng kí" />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiDangNhap" text="Đăng nhập" />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiDangKi" text="Đăng kí" />
                   <MenuItem mnemonicParsing="false" text="Đăng xuất" />
                </items></Menu>
           <Menu mnemonicParsing="false" onAction="#hienThiTrangChuNTDcontroller" text="Truy cập ">

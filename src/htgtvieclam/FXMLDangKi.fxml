@@ -12,20 +12,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLDangKiController">
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="Tài khoản">
             <items>
-              <MenuItem mnemonicParsing="false" text="Đăng nhập" />
+              <MenuItem mnemonicParsing="false" onAction="#hienThiDangNhap" text="Đăng nhập" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Truy cập">
             <items>
-              <MenuItem mnemonicParsing="false" text="Trang nhà tuyển dụng " />
-                  <MenuItem mnemonicParsing="false" text="Trang quản trị viên" />
-                  <MenuItem mnemonicParsing="false" text="Trang người tìm việc" />
+              <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Trang nhà tuyển dụng " />
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTV" text="Trang người tìm việc" />
             </items>
           </Menu>
         </menus>
@@ -42,7 +41,7 @@
                         <VBox prefHeight="150.0" prefWidth="128.0">
                            <children>
                               <Text fx:id="txtNtv" styleClass="lbName" text="NGƯỜI TÌM VIỆC " />
-                              <Button fx:id="btnNtv" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseEntered="#btnntvMouseEnteredHandler" onMouseExited="#btnntvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
+                              <Button fx:id="btnNtv" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangKiNTV" onMouseEntered="#btnntvMouseEnteredHandler" onMouseExited="#btnntvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
                                  <graphic>
                                     <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
@@ -59,7 +58,7 @@
                         <VBox prefHeight="150.0" prefWidth="145.0">
                            <children>
                               <Text fx:id="txtNtd" styleClass="lbName" text="NHÀ TUYỂN DỤNG" />
-                              <Button fx:id="btnNtd" contentDisplay="BOTTOM" mnemonicParsing="false" onMouseEntered="#btnntdOnMouseEnteredHandler" onMouseExited="#btnntdvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
+                              <Button fx:id="btnNtd" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#hienThiDangKiNTD" onMouseEntered="#btnntdOnMouseEnteredHandler" onMouseExited="#btnntdvOnMouseExiteddHandler" prefHeight="142.0" prefWidth="133.0">
                                  <graphic>
                                     <ImageView fitHeight="100.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
