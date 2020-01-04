@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="766.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLTrangChuNTVController">
+   <top>
+      <MenuBar prefHeight="29.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tài khoản">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Đăng nhập" />
+                  <MenuItem mnemonicParsing="false" text="Đăng kí" />
+                  <MenuItem mnemonicParsing="false" text="Đăng xuất" />
+               </items></Menu>
+          <Menu mnemonicParsing="false" onAction="#hienThiTrangChuNTDcontroller" text="Truy cập ">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#hienThiTrangChuNTD" text="Trang người tìm việc" />
+               </items></Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <VBox prefHeight="579.0" prefWidth="739.0" styleClass="vboxNTV" BorderPane.alignment="CENTER">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtNTV" text="Hệ thống giới thiệu việc làm" wrappingWidth="509.90625" />
+            <Label text="Nhà tuyển dụng" textFill="#162140" />
+            <TextField fx:id="txtTimviec" prefHeight="17.0" prefWidth="590.0" promptText="Nhập tên công việc " />
+            <ComboBox fx:id="cbDanhmuc" prefHeight="44.0" prefWidth="775.0" promptText="Chọn ngành nghề">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <ComboBox layoutX="15.0" layoutY="123.0" prefHeight="44.0" prefWidth="809.0" promptText="Chọn tỉnh thành">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></ComboBox>
+            <ComboBox layoutX="15.0" layoutY="207.0" prefHeight="44.0" prefWidth="809.0" promptText="Chọn mức lương">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ComboBox>
+            <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
+               <columns>
+                  <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên người tìm việc" />
+                  <TableColumn fx:id="colNhaTuyenDung" prefWidth="140.0" text="Kinh nghiệm" />
+                  <TableColumn fx:id="colLuong" prefWidth="120.0" text="Mức lương " />
+                  <TableColumn fx:id="colTinhThanh" prefWidth="130.0" text="Tỉnh thành " />
+                  <TableColumn fx:id="colNgayDang" prefWidth="166.0" text="Ngày đăng tin" />
+               </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
