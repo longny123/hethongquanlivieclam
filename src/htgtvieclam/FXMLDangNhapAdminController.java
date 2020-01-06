@@ -103,13 +103,13 @@ public class FXMLDangNhapAdminController implements Initializable {
             Iterator iterator = taikhoan.iterator();
             while (iterator.hasNext()){
                     Taikhoan tk = (Taikhoan)iterator.next();
-                    if (this.txttendangnhap.toString() == tk.getTendangnhap() && this.txtmatkhau.toString() == tk.getMatkhau() && tk.getLoainguoidung() == "admin"){
-                    Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangchuNTV.fxml"));
-                    Scene scene = new Scene(root);
+                    if ((this.txttendangnhap.getText()== null ? tk.getTendangnhap() == null : this.txttendangnhap.getText().equals(tk.getTendangnhap())) && this.txtmatkhau.getText() == tk.getMatkhau() && tk.getLoainguoidung() == "admin"){
+                        Parent root = FXMLLoader.load(getClass().getResource("FXMLTrangchuNTV.fxml"));
+                        Scene scene = new Scene(root);
 
-                    Stage stage = new Stage();
-                    stage.setScene(scene);
-                    stage.show();
+                        Stage stage = new Stage();
+                        stage.setScene(scene);
+                        stage.show();
                 }
             }
        }

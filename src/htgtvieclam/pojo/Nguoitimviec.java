@@ -36,7 +36,7 @@ public class Nguoitimviec implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "taikhoan")
     private Taikhoan taikhoan;
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "qlthongtindk")
     private QLthongtindk qlthongtindk;
     

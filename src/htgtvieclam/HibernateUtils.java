@@ -6,7 +6,7 @@
 package htgtvieclam;
 
 
-import htgtvieclam.pojo.Vieclam;
+import htgtvieclam.pojo.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -44,8 +44,14 @@ public class HibernateUtils {
     
     static {
         Configuration configure = new Configuration();
-        configure.addAnnotatedClass(Vieclam.class);
         configure.configure("hibernate.cfg.xml");
+        configure.addAnnotatedClass(Taikhoan.class);
+        configure.addAnnotatedClass(Vieclam.class);
+        configure.addAnnotatedClass(Danhmucnganhnghe.class);
+        configure.addAnnotatedClass(Nguoitimviec.class);
+        configure.addAnnotatedClass(Nhatuyendung.class);
+        configure.addAnnotatedClass(QLthongtindk.class);
+        configure.addAnnotatedClass(QLthongtintd.class);
         StandardServiceRegistryBuilder builder
             = new StandardServiceRegistryBuilder().applySettings(configure.getProperties());
         factory = configure.buildSessionFactory(builder.build());

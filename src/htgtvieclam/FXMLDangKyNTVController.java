@@ -34,7 +34,6 @@ import org.hibernate.Transaction;
  * @author DELL
  */
 public class FXMLDangKyNTVController implements Initializable {
-    private static SessionFactory factory;
     /**
      * Initializes the controller class.
      */
@@ -44,8 +43,6 @@ public class FXMLDangKyNTVController implements Initializable {
     private TextField txtmatkhau;
     @FXML
     private TextField txtnhaplai;
-    @FXML
-    private TextField txttencongty;
     @FXML
     private TextField txthoten;
     @FXML
@@ -93,14 +90,37 @@ public class FXMLDangKyNTVController implements Initializable {
     }
     
     public void DangKyHanler (ActionEvent event){
-        Session session = factory.openSession();
-        Transaction trans = null;
-        Taikhoan tk;
-        Alert alert = null;
-        if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction trans = session.beginTransaction();
+        Taikhoan tk =  null;
+        if (this.txttendangnhap.getText() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu tên đăng nhập");
+            alert.show();
+        }
+        else if (this.txtmatkhau.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu mật khẩu");
+            alert.show();
+        }
+        else if (this.txtnhaplai.getText().equals("") && txtnhaplai != txtmatkhau){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("phải nhập đúng mật khảu giống ô trên");
+            alert.show();
+        }
+        else if (this.txthoten.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu họ và tên");
+            alert.show();
+        }
+        else if (this.txtsdt.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu số điện thoại");
+            alert.show();
+        }
+        else if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
         {
             try{
-                trans = session.beginTransaction();
                 tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Người tìm việc");
                 session.save(tk);
                 trans.commit();
@@ -113,30 +133,7 @@ public class FXMLDangKyNTVController implements Initializable {
             finally{session.close();}
         }
 
-        else if (txttendangnhap.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu tên đăng nhập");
-        }
-        else if (txtmatkhau.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu mật khẩu");
-        }
-        else if (txtnhaplai.getText() == null && txtnhaplai != txtmatkhau){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("phải nhập đúng mật khảu giống ô trên");
-        }
-        else if (txttencongty.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu tên công ty");
-        }
-        else if (txthoten.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu họ và tên");
-        }
-        else if (txtsdt.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu số điện thoại");
-        }
+       
     }    
     
 }

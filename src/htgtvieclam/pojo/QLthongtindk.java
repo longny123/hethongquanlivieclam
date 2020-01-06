@@ -5,8 +5,8 @@
  */
 package htgtvieclam.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -15,132 +15,95 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "qlthongtindk")
-public class QLthongtindk implements Serializable{
+public class QLthongtindk {
     @Id
-    @Column(name = "id_vieclam")
-    private String id_vieclam;
-    @Id
-    @Column(name = "id_danhmuc")
-    private int id_danhmuc;
-    @Id
-    @Column(name = "id_nguoitimvec")
-    private int id_nguoitimviec;
-    @Column(name = "ngaydangki")
-    private Date ngaydangki;
+    @Column (name = "idqlthongtin")
+    private int idqlthongtindk;
+    @OneToMany(mappedBy = "qlthongtindk")
+    private List<Nguoitimviec> idnguoitimviec;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idvieclam")
-    private Vieclam vieclam;
+    @JoinColumn (name = "iddanhmuc")
+    private int iddanhmuc;
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "iddanhmucnganhnghe")
-    private Danhmucnganhnghe danhmucnganhnghe;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "idnguoitimviec")
-    private Nguoitimviec nguoitimviec;
+    private List<Vieclam> idvieclam;
+    @Column(name = "ngaydk")
+    private Date ngaydk;
     
     public QLthongtindk(){}
+    public QLthongtindk(int id, int iddm, Date ngay){
+        this.idqlthongtindk = id;
+        this.iddanhmuc = iddm;
+        this.ngaydk = ngay;
+    }
+
+    /**
+     * @return the idqlthongtindk
+     */
+    public int getIdqlthongtindk() {
+        return idqlthongtindk;
+    }
+
+    /**
+     * @param idqlthongtindk the idqlthongtindk to set
+     */
+    public void setIdqlthongtindk(int idqlthongtindk) {
+        this.idqlthongtindk = idqlthongtindk;
+    }
+
+    /**
+     * @return the idnguoitimviec
+     */
+    public List<Nguoitimviec> getIdnguoitimviec() {
+        return idnguoitimviec;
+    }
+
+    /**
+     * @param idnguoitimviec the idnguoitimviec to set
+     */
+    public void setIdnguoitimviec(List<Nguoitimviec> idnguoitimviec) {
+        this.idnguoitimviec = idnguoitimviec;
+    }
+
+    /**
+     * @return the iddanhmuc
+     */
+    public int getIddanhmuc() {
+        return iddanhmuc;
+    }
+
+    /**
+     * @param iddanhmuc the iddanhmuc to set
+     */
+    public void setIddanhmuc(int iddanhmuc) {
+        this.iddanhmuc = iddanhmuc;
+    }
+
+    /**
+     * @return the idvieclam
+     */
+    public List<Vieclam> getIdvieclam() {
+        return idvieclam;
+    }
+
+    /**
+     * @param idvieclam the idvieclam to set
+     */
+    public void setIdvieclam(List<Vieclam> idvieclam) {
+        this.idvieclam = idvieclam;
+    }
+
+    /**
+     * @return the ngaydk
+     */
+    public Date getNgaydk() {
+        return ngaydk;
+    }
+
+    /**
+     * @param ngaydk the ngaydk to set
+     */
+    public void setNgaydk(Date ngaydk) {
+        this.ngaydk = ngaydk;
+    }
     
-    public QLthongtindk(String idvl, int iddm, int idntv, Date ngaydk){
-        this.id_vieclam = idvl;
-        this.id_danhmuc = iddm;
-        this.id_nguoitimviec = idntv;
-        this.ngaydangki = ngaydk;
-    }
-
-    /**
-     * @return the id_vieclam
-     */
-    public String getId_vieclam() {
-        return id_vieclam;
-    }
-
-    /**
-     * @param id_vieclam the id_vieclam to set
-     */
-    public void setId_vieclam(String id_vieclam) {
-        this.id_vieclam = id_vieclam;
-    }
-
-    /**
-     * @return the id_danhmuc
-     */
-    public int getId_danhmuc() {
-        return id_danhmuc;
-    }
-
-    /**
-     * @param id_danhmuc the id_danhmuc to set
-     */
-    public void setId_danhmuc(int id_danhmuc) {
-        this.id_danhmuc = id_danhmuc;
-    }
-
-    /**
-     * @return the id_nguoitimviec
-     */
-    public int getId_nguoitimviec() {
-        return id_nguoitimviec;
-    }
-
-    /**
-     * @param id_nguoitimviec the id_nguoitimviec to set
-     */
-    public void setId_nguoitimviec(int id_nguoitimviec) {
-        this.id_nguoitimviec = id_nguoitimviec;
-    }
-
-    /**
-     * @return the ngaydangki
-     */
-    public Date getNgaydangki() {
-        return ngaydangki;
-    }
-
-    /**
-     * @param ngaydangki the ngaydangki to set
-     */
-    public void setNgaydangki(Date ngaydangki) {
-        this.ngaydangki = ngaydangki;
-    }
-
-    /**
-     * @return the vieclam
-     */
-    public Vieclam getVieclam() {
-        return vieclam;
-    }
-
-    /**
-     * @param vieclam the vieclam to set
-     */
-    public void setVieclam(Vieclam vieclam) {
-        this.vieclam = vieclam;
-    }
-
-    /**
-     * @return the danhmuc
-     */
-    public Danhmucnganhnghe getDanhmuc() {
-        return danhmucnganhnghe;
-    }
-
-    /**
-     * @param danhmuc the danhmuc to set
-     */
-    public void setDanhmuc(Danhmucnganhnghe danhmuc) {
-        this.danhmucnganhnghe = danhmuc;
-    }
-
-    /**
-     * @return the nguoitimviec
-     */
-    public Nguoitimviec getNguoitimviec() {
-        return nguoitimviec;
-    }
-
-    /**
-     * @param nguoitimviec the nguoitimviec to set
-     */
-    public void setNguoitimviec(Nguoitimviec nguoitimviec) {
-        this.nguoitimviec = nguoitimviec;
-    }
 }

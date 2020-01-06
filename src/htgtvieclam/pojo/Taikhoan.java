@@ -6,6 +6,7 @@
 package htgtvieclam.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -22,12 +23,9 @@ public class Taikhoan implements Serializable {
     private String matkhau;
     @Column(name = "loainguoidung")
     private String loainguoidung;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tendangnhap")
-    private Nguoitimviec nguoitimviec;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "tendangnhap")
-    private Nhatuyendung nhatuyendung;
+    @OneToMany(mappedBy = "taikhoan")
+    private List<Nguoitimviec> nguoitimviec;
+
     
     public Taikhoan(String tendangnhap, String matkhau, String loainguuoidung){
         this.tendangnhap = tendangnhap;
@@ -80,28 +78,15 @@ public class Taikhoan implements Serializable {
     /**
      * @return the nguoitimviec
      */
-    public Nguoitimviec getNguoitimviec() {
+    public List<Nguoitimviec> getNguoitimviec() {
         return nguoitimviec;
     }
 
     /**
      * @param nguoitimviec the nguoitimviec to set
      */
-    public void setNguoitimviec(Nguoitimviec nguoitimviec) {
+    public void setNguoitimviec(List<Nguoitimviec> nguoitimviec) {
         this.nguoitimviec = nguoitimviec;
     }
 
-    /**
-     * @return the nhatuyendung
-     */
-    public Nhatuyendung getNhatuyendung() {
-        return nhatuyendung;
-    }
-
-    /**
-     * @param nhatuyendung the nhatuyendung to set
-     */
-    public void setNhatuyendung(Nhatuyendung nhatuyendung) {
-        this.nhatuyendung = nhatuyendung;
-    }
 }

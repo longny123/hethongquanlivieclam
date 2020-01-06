@@ -6,6 +6,7 @@
 package htgtvieclam.pojo;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 import static org.hibernate.FetchMode.LAZY;
 /**
@@ -31,16 +32,14 @@ public class Vieclam implements Serializable{
     @JoinColumn(name = "idnhatuyendung")
     private Nhatuyendung nhatuyendung;
     
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idvieclam")
-    private QLthongtintuyendung qlthongtintuyendung;
+    @OneToMany(mappedBy = "vieclam")
+    private QLthongtintd qlthongtintuyendung;
     
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "iddungmuc")
     private Danhmucnganhnghe danhmucnganhnghe;
     
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idvieclam")
+    @OneToMany(mappedBy = "vieclam")
     private QLthongtindk qlthongtindk;
     
     public Vieclam(){}
@@ -55,7 +54,7 @@ public class Vieclam implements Serializable{
     }
     
     public String getCateNameView() {
-        return this.danhmucnganhnghe.getTendanhmuc();
+        return this.getDanhmucnganhnghe().getTendanhmuc();
     }
     /**
      * @return the idvieclam
@@ -144,4 +143,48 @@ public class Vieclam implements Serializable{
     public void setNgaydang(Date ngaydang) {
         this.ngaydang = ngaydang;
     }
+
+    /**
+     * @return the qlthongtintuyendung
+     */
+    public QLthongtintd getQlthongtintuyendung() {
+        return qlthongtintuyendung;
+    }
+
+    /**
+     * @param qlthongtintuyendung the qlthongtintuyendung to set
+     */
+    public void setQlthongtintuyendung(QLthongtintd qlthongtintuyendung) {
+        this.qlthongtintuyendung = qlthongtintuyendung;
+    }
+
+    /**
+     * @return the danhmucnganhnghe
+     */
+    public Danhmucnganhnghe getDanhmucnganhnghe() {
+        return danhmucnganhnghe;
+    }
+
+    /**
+     * @param danhmucnganhnghe the danhmucnganhnghe to set
+     */
+    public void setDanhmucnganhnghe(Danhmucnganhnghe danhmucnganhnghe) {
+        this.danhmucnganhnghe = danhmucnganhnghe;
+    }
+
+    /**
+     * @return the qlthongtindk
+     */
+    public QLthongtindk getQlthongtindk() {
+        return qlthongtindk;
+    }
+
+    /**
+     * @param qlthongtindk the qlthongtindk to set
+     */
+    public void setQlthongtindk(QLthongtindk qlthongtindk) {
+        this.qlthongtindk = qlthongtindk;
+    }
+
+    
 }

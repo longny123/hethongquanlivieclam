@@ -6,6 +6,7 @@
 package htgtvieclam.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -20,9 +21,8 @@ public class Danhmucnganhnghe implements Serializable {
     private int iddanhmucnganhnghe;
     @Column(name = "tendanhmuc")
     private String tendanhmuc;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_danhmuc")
-    private QLthongtindk qlthongtindk;
+    @OneToMany(mappedBy = "danhmucnganhnghe")
+    private List<QLthongtindk> qlthongtindk;
     
     public Danhmucnganhnghe(int id, String ten){
         this.iddanhmucnganhnghe = id;
@@ -60,6 +60,20 @@ public class Danhmucnganhnghe implements Serializable {
     @Override
     public String toString() {
         return this.tendanhmuc; //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @return the qlthongtindk
+     */
+    public List<QLthongtindk> getQlthongtindk() {
+        return qlthongtindk;
+    }
+
+    /**
+     * @param qlthongtindk the qlthongtindk to set
+     */
+    public void setQlthongtindk(List<QLthongtindk> qlthongtindk) {
+        this.qlthongtindk = qlthongtindk;
     }
     
 }

@@ -6,6 +6,7 @@
 package htgtvieclam.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -22,12 +23,10 @@ public class Nhatuyendung implements Serializable {
     private String tennhatuyendung;
     @Column(name = "sdt")
     private int sdt;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idvieclam")
-    private Vieclam vieclam;
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "idnhatuyendung")
-    private QLthongtintuyendung qlthongtintuyendung;
+    @OneToMany(mappedBy = "nhatuyendung")
+    private List<Vieclam> vieclam;
+    @OneToMany(mappedBy = "nhatuyendung")
+    private List<QLthongtintd> qlthongtintuyendung;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tendangnhap")
     private Taikhoan taikhoan;
@@ -37,6 +36,12 @@ public class Nhatuyendung implements Serializable {
         this.tennhatuyendung = ten;
         this.sdt = sdt;
     }
+
+    @Override
+    public String toString() {
+        return this.tennhatuyendung; //To change body of generated methods, choose Tools | Templates.
+    }
+    
 
     /**
      * @return the idnhatuyendung
@@ -83,28 +88,28 @@ public class Nhatuyendung implements Serializable {
     /**
      * @return the vieclam
      */
-    public Vieclam getVieclam() {
+    public List<Vieclam> getVieclam() {
         return vieclam;
     }
 
     /**
      * @param vieclam the vieclam to set
      */
-    public void setVieclam(Vieclam vieclam) {
+    public void setVieclam(List<Vieclam> vieclam) {
         this.vieclam = vieclam;
     }
 
     /**
      * @return the qlthongtintuyendung
      */
-    public QLthongtintuyendung getQlthongtintuyendung() {
+    public List<QLthongtintd> getQlthongtintuyendung() {
         return qlthongtintuyendung;
     }
 
     /**
      * @param qlthongtintuyendung the qlthongtintuyendung to set
      */
-    public void setQlthongtintuyendung(QLthongtintuyendung qlthongtintuyendung) {
+    public void setQlthongtintuyendung(List<QLthongtintd> qlthongtintuyendung) {
         this.qlthongtintuyendung = qlthongtintuyendung;
     }
 
