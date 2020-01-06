@@ -16,6 +16,12 @@ VBox {
     -fx-font-size:20;
 }
 
+VBox.Admin_NTV, VBox.Admin_NTD {
+    -fx-alignment: TOP_CENTER;
+    -fx-padding: 3;
+    -fx-spacing: 2;
+}
+
 VBox.vboxNTV {
     -fx-alignment: top-center;
     -fx-padding: 5;
@@ -34,6 +40,10 @@ HBox {
     -fx-alignment: CENTER_LEFT;
     -fx-spacing: 3;
     -fx-font-size: 13;
+}
+
+HBox.Admin_NTV {
+    -fx-padding-top: 0;
 }
 
 HBox.DangNhap {
@@ -117,7 +127,16 @@ BorderPane {
     -fx-background-color: lightblue;
 }
 
+
 GridPane {
     -fx-vgap: 40;
     -fx-hgap: 40;
+
+Text.txtTitleAdmin_NTD, Text.txtTitleAdmin_NTV {
+    -fx-alignment: CENTER;
+    -fx-fill: blue;
+    -fx-stroke: black;
+    -fx-stroke-width: 0.8;
+    -fx-font-size: 30;
+
 }
