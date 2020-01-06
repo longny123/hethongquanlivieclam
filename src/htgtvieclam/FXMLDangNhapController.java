@@ -92,7 +92,7 @@ public class FXMLDangNhapController implements Initializable {
     public void hienThiTrangChuNTV(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FXMLTrangChuNTV.fxml"));
+        loader.setLocation(getClass().getResource("FXMLDangNhapNTD.fxml"));
         Parent parent = loader.load();
         Scene scene = new Scene(parent);;
         
