@@ -23,8 +23,6 @@ public class Taikhoan implements Serializable {
     private String matkhau;
     @Column(name = "loainguoidung")
     private String loainguoidung;
-    @OneToMany(mappedBy = "taikhoan")
-    private List<Nguoitimviec> nguoitimviec;
 
     
     public Taikhoan(String tendangnhap, String matkhau, String loainguuoidung){
@@ -74,19 +72,4 @@ public class Taikhoan implements Serializable {
     public void setLoainguoidung(String loainguoidung) {
         this.loainguoidung = loainguoidung;
     }
-
-    /**
-     * @return the nguoitimviec
-     */
-    public List<Nguoitimviec> getNguoitimviec() {
-        return nguoitimviec;
-    }
-
-    /**
-     * @param nguoitimviec the nguoitimviec to set
-     */
-    public void setNguoitimviec(List<Nguoitimviec> nguoitimviec) {
-        this.nguoitimviec = nguoitimviec;
-    }
-
 }

@@ -38,7 +38,7 @@
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" styleClass="dn_dk_button">
                      <children>
-                        <Button mnemonicParsing="false" styleClass="DangNhapNTD" text="ĐĂNG NHẬP" />
+                        <Button mnemonicParsing="false" onAction="#DangNhapHandler" styleClass="DangNhapNTD" text="ĐĂNG NHẬP" />
                      </children>
                   </HBox>
                </children>

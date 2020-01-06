@@ -52,6 +52,6 @@ Contributor(s):
     <mapping class="htgtvieclam.pojo.Nhatuyendung"/>
     <mapping class="htgtvieclam.pojo.Vieclam"/>
     <mapping class="htgtvieclam.pojo.QLthongtindk"/>
-    <mapping class="htgtvieclam.pojo.QLthongtintuyendung"/>
+    <mapping class="htgtvieclam.pojo.QLthongtintd"/>
   </session-factory>
 </hibernate-configuration>

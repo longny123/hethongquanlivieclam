@@ -18,13 +18,13 @@ import static org.hibernate.FetchMode.LAZY;
 public class Vieclam implements Serializable{
     @Id
     private int idvieclam;
-    @Column(name = "tenvieclam", length = 45, nullable = false)
+    @Column(name = "tenvieclam")
     private String tenvieclam;
-    @Column(name = "vitri", length = 45, nullable = false)
+    @Column(name = "vitri")
     private String vitri;
-    @Column(name = "luong", nullable = false)
+    @Column(name = "luong")
     private int luong;
-    @Column(name = "diachi", length = 100, nullable = false)
+    @Column(name = "diachi")
     private String diachi;
     @Column(name = "ngaydang")
     private Date ngaydang;
@@ -32,15 +32,9 @@ public class Vieclam implements Serializable{
     @JoinColumn(name = "idnhatuyendung")
     private Nhatuyendung nhatuyendung;
     
-    @OneToMany(mappedBy = "vieclam")
-    private QLthongtintd qlthongtintuyendung;
-    
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "iddungmuc")
     private Danhmucnganhnghe danhmucnganhnghe;
-    
-    @OneToMany(mappedBy = "vieclam")
-    private QLthongtindk qlthongtindk;
     
     public Vieclam(){}
   
@@ -147,16 +141,6 @@ public class Vieclam implements Serializable{
     /**
      * @return the qlthongtintuyendung
      */
-    public QLthongtintd getQlthongtintuyendung() {
-        return qlthongtintuyendung;
-    }
-
-    /**
-     * @param qlthongtintuyendung the qlthongtintuyendung to set
-     */
-    public void setQlthongtintuyendung(QLthongtintd qlthongtintuyendung) {
-        this.qlthongtintuyendung = qlthongtintuyendung;
-    }
 
     /**
      * @return the danhmucnganhnghe
@@ -172,19 +156,4 @@ public class Vieclam implements Serializable{
         this.danhmucnganhnghe = danhmucnganhnghe;
     }
 
-    /**
-     * @return the qlthongtindk
-     */
-    public QLthongtindk getQlthongtindk() {
-        return qlthongtindk;
-    }
-
-    /**
-     * @param qlthongtindk the qlthongtindk to set
-     */
-    public void setQlthongtindk(QLthongtindk qlthongtindk) {
-        this.qlthongtindk = qlthongtindk;
-    }
-
-    
 }

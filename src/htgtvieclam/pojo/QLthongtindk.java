@@ -21,11 +21,8 @@ public class QLthongtindk {
     private int idqlthongtindk;
     @OneToMany(mappedBy = "qlthongtindk")
     private List<Nguoitimviec> idnguoitimviec;
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn (name = "iddanhmuc")
     private int iddanhmuc;
-    @ManyToOne(fetch = FetchType.EAGER)
-    private List<Vieclam> idvieclam;
+    private int idvieclam;
     @Column(name = "ngaydk")
     private Date ngaydk;
     
@@ -81,14 +78,14 @@ public class QLthongtindk {
     /**
      * @return the idvieclam
      */
-    public List<Vieclam> getIdvieclam() {
+    public int getIdvieclam() {
         return idvieclam;
     }
 
     /**
      * @param idvieclam the idvieclam to set
      */
-    public void setIdvieclam(List<Vieclam> idvieclam) {
+    public void setIdvieclam(int idvieclam) {
         this.idvieclam = idvieclam;
     }
 

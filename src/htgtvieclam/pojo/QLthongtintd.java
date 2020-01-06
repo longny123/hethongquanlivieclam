@@ -20,15 +20,15 @@ public class QLthongtintd implements Serializable{
     @Column(name = "idqlthongtintd")
     private String idqlthongtintd; 
     @Column(name = "idnhatuyendung")
-    private Nhatuyendung idnhatuyendung;
+    private int idnhatuyendung;
     @Column(name = "idvieclam")
-    private Vieclam idvieclam;
+    private String idvieclam;
     @Column(name = "ngaydangki")
     private Date ngaydangki;
 
     public QLthongtintd(){}
     
-    public QLthongtintd(String idtd, Nhatuyendung idntd, Vieclam idvl ,Date ngaydk){
+    public QLthongtintd(String idtd, int idntd, String idvl ,Date ngaydk){
         this.idqlthongtintd = idtd;
         this.idnhatuyendung = idntd;
         this.idvieclam = idvl;
@@ -40,14 +40,14 @@ public class QLthongtintd implements Serializable{
     /**
      * @return the idnhatuyendung
      */
-    public Nhatuyendung getIdnhatuyendung() {
+    public int getIdnhatuyendung() {
         return idnhatuyendung;
     }
 
     /**
      * @param idnhatuyendung the idnhatuyendung to set
      */
-    public void setIdnhatuyendung(Nhatuyendung idnhatuyendung) {
+    public void setIdnhatuyendung(int idnhatuyendung) {
         this.idnhatuyendung = idnhatuyendung;
     }
 
@@ -82,14 +82,14 @@ public class QLthongtintd implements Serializable{
     /**
      * @return the idvieclam
      */
-    public Vieclam getIdvieclam() {
+    public String getIdvieclam() {
         return idvieclam;
     }
 
     /**
      * @param idvieclam the idvieclam to set
      */
-    public void setIdvieclam(Vieclam idvieclam) {
+    public void setIdvieclam(String idvieclam) {
         this.idvieclam = idvieclam;
     }
 

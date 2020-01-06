@@ -25,8 +25,6 @@ public class Nhatuyendung implements Serializable {
     private int sdt;
     @OneToMany(mappedBy = "nhatuyendung")
     private List<Vieclam> vieclam;
-    @OneToMany(mappedBy = "nhatuyendung")
-    private List<QLthongtintd> qlthongtintuyendung;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tendangnhap")
     private Taikhoan taikhoan;
@@ -97,20 +95,6 @@ public class Nhatuyendung implements Serializable {
      */
     public void setVieclam(List<Vieclam> vieclam) {
         this.vieclam = vieclam;
-    }
-
-    /**
-     * @return the qlthongtintuyendung
-     */
-    public List<QLthongtintd> getQlthongtintuyendung() {
-        return qlthongtintuyendung;
-    }
-
-    /**
-     * @param qlthongtintuyendung the qlthongtintuyendung to set
-     */
-    public void setQlthongtintuyendung(List<QLthongtintd> qlthongtintuyendung) {
-        this.qlthongtintuyendung = qlthongtintuyendung;
     }
 
     /**

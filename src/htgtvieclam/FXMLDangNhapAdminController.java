@@ -94,7 +94,7 @@ public class FXMLDangNhapAdminController implements Initializable {
     }
     
     public void DangNhapHandler(ActionEvent event) throws SQLException, IOException{
-        Session session = factory.openSession();
+        Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction trans = null;
         try {
             trans = session.beginTransaction();
