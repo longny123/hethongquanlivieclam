@@ -25,7 +25,6 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
@@ -94,29 +93,44 @@ public class FXMLDangKyNTVController implements Initializable {
         Transaction trans = session.beginTransaction();
         Taikhoan tk =  null;
         if (this.txttendangnhap.getText() == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu tên đăng nhập");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtmatkhau.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu mật khẩu");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtnhaplai.getText().equals("") && txtnhaplai != txtmatkhau){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("phải nhập đúng mật khảu giống ô trên");
-            alert.show();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Phải nhập đúng mật khảu giống ô trên");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txthoten.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu họ và tên");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtsdt.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu số điện thoại");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
         {
