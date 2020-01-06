@@ -8,10 +8,7 @@ package htgtvieclam;
 import htgtvieclam.pojo.Taikhoan;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
@@ -25,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
@@ -45,7 +43,7 @@ public class FXMLDangNhapNTVController implements Initializable {
     @FXML
     private TextField txttendangnhap;
     @FXML
-    private TextField txtmatkhau;
+    private PasswordField txtmatkhau;
     /**
      * Initializes the controller class.
      */
