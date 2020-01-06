@@ -127,10 +127,10 @@ BorderPane {
     -fx-background-color: lightblue;
 }
 
-
 GridPane {
     -fx-vgap: 40;
     -fx-hgap: 40;
+}
 
 Text.txtTitleAdmin_NTD, Text.txtTitleAdmin_NTV {
     -fx-alignment: CENTER;
@@ -138,5 +138,4 @@ Text.txtTitleAdmin_NTD, Text.txtTitleAdmin_NTV {
     -fx-stroke: black;
     -fx-stroke-width: 0.8;
     -fx-font-size: 30;
-
 }
