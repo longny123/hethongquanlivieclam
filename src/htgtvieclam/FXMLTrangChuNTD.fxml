@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
@@ -18,15 +22,43 @@
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtNTV" text="Hệ thống giới thiệu việc làm" wrappingWidth="509.90625" />
             <Label text="Nhà tuyển dụng" textFill="#162140" />
-            <TextField fx:id="txtTimviec" prefHeight="17.0" prefWidth="590.0" promptText="Nhập tên công việc " />
-            <ComboBox fx:id="cbDanhmuc" prefHeight="44.0" prefWidth="775.0" promptText="Chọn ngành nghề">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></ComboBox>
-            <ComboBox layoutX="15.0" layoutY="123.0" prefHeight="44.0" prefWidth="809.0" promptText="Chọn tỉnh thành">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor></ComboBox>
+            <GridPane>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên nhà tuyển dụng :" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên công ty :" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="1" />
+                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField GridPane.columnIndex="3" />
+                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại : " GridPane.columnIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thành phố :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </GridPane>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="163.0" styleClass="WhiteText" text="THÊM">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+               <graphic>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@image/add.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <TextField promptText="NHẬP TÊN NGƯỜI TÌM VIỆC" />
             <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
                <columns>
                   <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên người tìm việc" />

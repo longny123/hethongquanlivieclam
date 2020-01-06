@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="387.0" prefWidth="1012.0" styleClass="Admin_NTV" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="30.0" prefWidth="200.0" styleClass="Admin_NTV">
+         <children>
+            <Button mnemonicParsing="false" styleClass="WhiteText" text="QUAY LẠI" />
+         </children>
+      </HBox>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtTitleAdmin_NTV" text="XEM VÀ XÓA THÔNG TIN NGƯỜI TÌM VIỆC" />
+      <Button mnemonicParsing="false" prefHeight="48.0" styleClass="WhiteText" text="XÓA">
+         <VBox.margin>
+            <Insets bottom="10.0" />
+         </VBox.margin>
+         <graphic>
+            <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/delete(1).png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <TextField promptText="NHẬP TÊN NGƯỜI TÌM VIỆC" />
+      <TableView fx:id="tvVieclam" prefWidth="1006.0">
+         <columns>
+            <TableColumn fx:id="colTenVL" prefWidth="177.0" text="Họ " />
+            <TableColumn fx:id="colNhaTuyenDung" prefWidth="105.0" text="Tên" />
+            <TableColumn fx:id="colLuong" prefWidth="158.0" text="Số điện thoại " />
+            <TableColumn fx:id="colTinhThanh" editable="false" prefWidth="166.0" text="Địa chỉ " />
+            <TableColumn fx:id="colNgayDang" prefWidth="134.0" text="Học vấn " />
+            <TableColumn fx:id="colNgayDang1" prefWidth="134.0" text="Kinh nghiệm" />
+            <TableColumn fx:id="colNgayDang11" prefWidth="131.0" text="Tiếng Anh" />
+         </columns>
+      </TableView>
+   </children>
+</VBox>
