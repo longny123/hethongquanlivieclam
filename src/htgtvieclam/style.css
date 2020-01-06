@@ -16,7 +16,7 @@ VBox {
     -fx-font-size:20;
 }
 
-VBox.Admin_NTV, VBox.Admin_NTD {
+VBox.Admin_NTV, VBox.Admin_NTD, VBox.NTV_Update {
     -fx-alignment: TOP_CENTER;
     -fx-padding: 3;
     -fx-spacing: 2;
@@ -138,4 +138,9 @@ Text.txtTitleAdmin_NTD, Text.txtTitleAdmin_NTV {
     -fx-stroke: black;
     -fx-stroke-width: 0.8;
     -fx-font-size: 30;
+}
+
+GridPane.NTV_Update {
+    -fx-vgap: 20;
+    -fx-hgap: 20;
 }

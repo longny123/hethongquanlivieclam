@@ -26,7 +26,7 @@ import javafx.stage.WindowEvent;
  *
  * @author BTS4LIFE
  */
-public class FXMLNTV_CapNhatController implements Initializable {
+public class FXMLNTD_CapNhatController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -39,7 +39,7 @@ public class FXMLNTV_CapNhatController implements Initializable {
     public void quayLai(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FXMLTrangChuNTV.fxml"));
+        loader.setLocation(getClass().getResource("FXMLTrangChuNTD.fxml"));
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         
