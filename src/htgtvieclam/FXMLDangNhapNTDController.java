@@ -95,6 +95,43 @@ public class FXMLDangNhapNTDController implements Initializable {
         }); 
     }
     
+    public void quayLaiTNTV(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLTrangNTV.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
+        
+        Image image = new Image("htgtvieclam/icon/app_icon.png");
+        
+        stage.getIcons().add(image);        
+        stage.setTitle("Hệ thống giới thiệu việc làm");        
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+        
+        stage.setOnCloseRequest((WindowEvent we) -> {
+            we.consume();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Thông báo!");
+            
+            // Header Text: null
+            alert.setHeaderText(null);
+            alert.setContentText("Bạn có muốn thoát không ?");
+            
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            ButtonType btnHuy = new ButtonType("Hủy");
+            
+            alert.getButtonTypes().setAll(btnDongY, btnHuy);
+            
+            Optional<ButtonType> rs = alert.showAndWait();
+            
+            if (rs.get() == btnDongY) {
+                stage.close();
+            }
+        }); 
+    }
+    
     public void DangNhapHandler(ActionEvent event) throws SQLException, IOException{
 //        Connection conn = HibernateUtils.getConn();
 //        Statement stm = conn.createStatement();

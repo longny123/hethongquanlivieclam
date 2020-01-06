@@ -19,7 +19,7 @@ VBox {
 VBox.vboxNTV {
     -fx-alignment: top-center;
     -fx-padding: 5;
-    -fx-spacing: 5;
+    -fx-spacing: 10;
 }
 
 Text.logo, Text.txtNTV {
@@ -115,4 +115,9 @@ HBox.TrangChuNTV, HBox.TrangChuNTD, HBox.DangNhapMenu, HBox.DangKiMenu {
 
 BorderPane { 
     -fx-background-color: lightblue;
+}
+
+GridPane {
+    -fx-vgap: 40;
+    -fx-hgap: 40;
 }
