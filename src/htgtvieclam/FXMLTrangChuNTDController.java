@@ -37,11 +37,9 @@ import javafx.stage.WindowEvent;
 import org.hibernate.Session;
 import htgtvieclam.HibernateUtils;
 import java.util.UUID;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -54,7 +52,7 @@ import org.hibernate.criterion.Restrictions;
  *
  * @author BTS4LIFE
  */
-public class FXMLTrangChuNTVController implements Initializable {
+public class FXMLTrangChuNTDController implements Initializable {
 
     /**
      * Initializes the controller class.
@@ -76,8 +74,6 @@ public class FXMLTrangChuNTVController implements Initializable {
     @FXML
     private TableColumn colNgayDang;
     @Override
-    
-    
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 //          this.txtTimviec.textProperty().addListener(et -> {
@@ -122,47 +118,10 @@ public class FXMLTrangChuNTVController implements Initializable {
 //    }
      
       
-    public void hienThiTrangChuNTD(ActionEvent event) throws IOException {   
+    public void hienThiTrangChuNTV(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FXMLTrangChuNTD.fxml"));
-        Parent parent = loader.load();
-        Scene scene = new Scene(parent);
-        
-        Image image = new Image("htgtvieclam/icon/app_icon.png");
-        
-        stage.getIcons().add(image);        
-        stage.setTitle("Hệ thống giới thiệu việc làm");        
-        stage.setResizable(false);
-        stage.setScene(scene);
-        stage.show();
-        
-        stage.setOnCloseRequest((WindowEvent we) -> {
-            we.consume();
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("Thông báo!");
-            
-            // Header Text: null
-            alert.setHeaderText(null);
-            alert.setContentText("Bạn có muốn thoát không ?");
-            
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            ButtonType btnHuy = new ButtonType("Hủy");
-            
-            alert.getButtonTypes().setAll(btnDongY, btnHuy);
-            
-            Optional<ButtonType> rs = alert.showAndWait();
-            
-            if (rs.get() == btnDongY) {
-                stage.close();
-            }
-        });
-    }
-    
-    public void hienThiDangNhap(ActionEvent event) throws IOException {
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FXMLDangNhap.fxml"));
+        loader.setLocation(getClass().getResource("FXMLTrangChuNTV.fxml"));
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         
@@ -200,6 +159,43 @@ public class FXMLTrangChuNTVController implements Initializable {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("FXMLDangKy.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
+        
+        Image image = new Image("htgtvieclam/icon/app_icon.png");
+        
+        stage.getIcons().add(image);        
+        stage.setTitle("Hệ thống giới thiệu việc làm");        
+        stage.setResizable(false);
+        stage.setScene(scene);
+        stage.show();
+        
+        stage.setOnCloseRequest((WindowEvent we) -> {
+            we.consume();
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Thông báo!");
+            
+            // Header Text: null
+            alert.setHeaderText(null);
+            alert.setContentText("Bạn có muốn thoát không ?");
+            
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            ButtonType btnHuy = new ButtonType("Hủy");
+            
+            alert.getButtonTypes().setAll(btnDongY, btnHuy);
+            
+            Optional<ButtonType> rs = alert.showAndWait();
+            
+            if (rs.get() == btnDongY) {
+                stage.close();
+            }
+        }); 
+    }
+    
+    public void hienThiDangNhap(ActionEvent event) throws IOException {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLDangNhap.fxml"));
         Parent parent = loader.load();
         Scene scene = new Scene(parent);
         
@@ -287,4 +283,7 @@ public class FXMLTrangChuNTVController implements Initializable {
             this.tvVieclam.getItems().clear();
             this.tvVieclam.setItems(this.getVieclam(kw));
         }
+    private void loadVieclam(String keyword){
+        Session session = HibernateUtils.getSessionFactory().openSession();
+    }
 }

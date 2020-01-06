@@ -5,26 +5,43 @@
  */
 package htgtvieclam.pojo;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.*;
+
 /**
  *
  * @author longn
  */
-public class Nhatuyendung {
+@Entity
+@Table(name = "nhatuyendung")
+public class Nhatuyendung implements Serializable {
+    @Id
+    @Column(name = "idnhatuyendung")
     private int idnhatuyendung;
+    @Column(name = "tennhatuyendung")
     private String tennhatuyendung;
+    @Column(name = "sdt")
     private int sdt;
-    private String tendangnhap;
+    @OneToMany(mappedBy = "nhatuyendung")
+    private List<Vieclam> vieclam;
+    @OneToMany(mappedBy = "nhatuyendung")
+    private List<QLthongtintd> qlthongtintuyendung;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tendangnhap")
+    private Taikhoan taikhoan;
     
     public Nhatuyendung(int id, String ten, int sdt){
         this.idnhatuyendung = id;
         this.tennhatuyendung = ten;
         this.sdt = sdt;
     }
-    
-     public Nhatuyendung(int id, String ten, int sdt,String tendangnhap){
-        this(id,ten,sdt);
-        this.tendangnhap = tendangnhap;
+
+    @Override
+    public String toString() {
+        return this.tennhatuyendung; //To change body of generated methods, choose Tools | Templates.
     }
+    
 
     /**
      * @return the idnhatuyendung
@@ -69,16 +86,44 @@ public class Nhatuyendung {
     }
 
     /**
-     * @return the tendangnhap
+     * @return the vieclam
      */
-    public String getTendangnhap() {
-        return tendangnhap;
+    public List<Vieclam> getVieclam() {
+        return vieclam;
     }
 
     /**
-     * @param tendangnhap the tendangnhap to set
+     * @param vieclam the vieclam to set
      */
-    public void setTendangnhap(String tendangnhap) {
-        this.tendangnhap = tendangnhap;
+    public void setVieclam(List<Vieclam> vieclam) {
+        this.vieclam = vieclam;
+    }
+
+    /**
+     * @return the qlthongtintuyendung
+     */
+    public List<QLthongtintd> getQlthongtintuyendung() {
+        return qlthongtintuyendung;
+    }
+
+    /**
+     * @param qlthongtintuyendung the qlthongtintuyendung to set
+     */
+    public void setQlthongtintuyendung(List<QLthongtintd> qlthongtintuyendung) {
+        this.qlthongtintuyendung = qlthongtintuyendung;
+    }
+
+    /**
+     * @return the taikhoan
+     */
+    public Taikhoan getTaikhoan() {
+        return taikhoan;
+    }
+
+    /**
+     * @param taikhoan the taikhoan to set
+     */
+    public void setTaikhoan(Taikhoan taikhoan) {
+        this.taikhoan = taikhoan;
     }
 }

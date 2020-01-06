@@ -5,14 +5,27 @@
  */
 package htgtvieclam.pojo;
 
+import java.io.Serializable;
+import java.util.List;
+import javax.persistence.*;
+
 /**
  *
  * @author longn
  */
-public class Taikhoan {
+@Entity
+@Table(name = "taikhoan")
+public class Taikhoan implements Serializable {
+    @Id
+    @Column(name = "tendangnhap")
     private String tendangnhap;
+    @Column(name = "matkhau")
     private String matkhau;
+    @Column(name = "loainguoidung")
     private String loainguoidung;
+    @OneToMany(mappedBy = "taikhoan")
+    private List<Nguoitimviec> nguoitimviec;
+
     
     public Taikhoan(String tendangnhap, String matkhau, String loainguuoidung){
         this.tendangnhap = tendangnhap;
@@ -61,4 +74,19 @@ public class Taikhoan {
     public void setLoainguoidung(String loainguoidung) {
         this.loainguoidung = loainguoidung;
     }
+
+    /**
+     * @return the nguoitimviec
+     */
+    public List<Nguoitimviec> getNguoitimviec() {
+        return nguoitimviec;
+    }
+
+    /**
+     * @param nguoitimviec the nguoitimviec to set
+     */
+    public void setNguoitimviec(List<Nguoitimviec> nguoitimviec) {
+        this.nguoitimviec = nguoitimviec;
+    }
+
 }

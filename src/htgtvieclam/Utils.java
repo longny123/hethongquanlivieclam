@@ -7,6 +7,7 @@ package htgtvieclam;
 
 import htgtvieclam.pojo.Danhmucnganhnghe;
 import htgtvieclam.pojo.Nguoitimviec;
+import htgtvieclam.pojo.QLthongtindk;
 import htgtvieclam.pojo.Taikhoan;
 import htgtvieclam.pojo.Vieclam;
 import java.sql.Connection;
@@ -24,6 +25,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -189,7 +191,7 @@ public class Utils {
         public static List<Danhmucnganhnghe> getCategories() {
         Session session = factory.openSession();
                 
-        Criteria cr = session.createCriteria(Category.class);
+        Criteria cr = session.createCriteria(Danhmucnganhnghe.class);
         List<Danhmucnganhnghe> categories = cr.list();
         
         session.close();
@@ -219,7 +221,7 @@ public class Utils {
         return true;
     }
         
-       public static boolean deleteQuestion(Vieclam vl) {
+       public static boolean deleteVieclam(Vieclam vl) {
        Session session = factory.openSession();
        try {
            session.beginTransaction();
@@ -238,5 +240,32 @@ public class Utils {
         a.setContentText(content);
         
         return a;
+    }
+       
+       public static int countSoLuongDK() {
+        Session session = factory.openSession();
+        
+        Criteria cr = session.createCriteria(QLthongtindk.class);
+        cr.setProjection(Projections.count("id_nguoitimviec"));
+        List rs = cr.list();
+        
+        session.close();
+        
+        return Integer.parseInt(rs.get(0).toString()) ;
+    }
+       
+        public static List countSoLuongByCate() {
+        Session session = factory.openSession();
+        
+        Criteria cr = session.createCriteria(Category.class);
+        cr.createAlias("qlthongtindk", "ql");
+        
+        cr.setProjection(Projections.projectionList()
+                                    .add(Projections.groupProperty("id_nguoitimviec"))
+                                    .add(Projections.count("ql.id_nguoitimviec")));
+        List kq = cr.list();
+        session.close();
+        
+        return kq;
     }
 }

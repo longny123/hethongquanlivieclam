@@ -6,7 +6,9 @@
 package htgtvieclam.pojo;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
+import static org.hibernate.FetchMode.LAZY;
 /**
  *
  * @author longn
@@ -26,10 +28,19 @@ public class Vieclam implements Serializable{
     private String diachi;
     @Column(name = "ngaydang")
     private Date ngaydang;
-    @Id
-    private int idnhatuyendung;
-    @Id
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "idnhatuyendung")
+    private Nhatuyendung nhatuyendung;
+    
+    @OneToMany(mappedBy = "vieclam")
+    private QLthongtintd qlthongtintuyendung;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "iddungmuc")
     private Danhmucnganhnghe danhmucnganhnghe;
+    
+    @OneToMany(mappedBy = "vieclam")
+    private QLthongtindk qlthongtindk;
     
     public Vieclam(){}
   
@@ -42,13 +53,8 @@ public class Vieclam implements Serializable{
         this.diachi = diachi;
     }
     
-    public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi,int idnhatuyendung){
-        this(idvieclam,ten,vitri,luong,diachi);
-        this.idnhatuyendung = idnhatuyendung;
-    }
-    
     public String getCateNameView() {
-        return this.danhmucnganhnghe.getTendanhmuc();
+        return this.getDanhmucnganhnghe().getTendanhmuc();
     }
     /**
      * @return the idvieclam
@@ -123,16 +129,6 @@ public class Vieclam implements Serializable{
     /**
      * @return the idnhatuyendung
      */
-    public int getIdnhatuyendung() {
-        return idnhatuyendung;
-    }
-
-    /**
-     * @param idnhatuyendung the idnhatuyendung to set
-     */
-    public void setIdnhatuyendung(int idnhatuyendung) {
-        this.idnhatuyendung = idnhatuyendung;
-    }
 
     /**
      * @return the ngaydang
@@ -147,4 +143,48 @@ public class Vieclam implements Serializable{
     public void setNgaydang(Date ngaydang) {
         this.ngaydang = ngaydang;
     }
+
+    /**
+     * @return the qlthongtintuyendung
+     */
+    public QLthongtintd getQlthongtintuyendung() {
+        return qlthongtintuyendung;
+    }
+
+    /**
+     * @param qlthongtintuyendung the qlthongtintuyendung to set
+     */
+    public void setQlthongtintuyendung(QLthongtintd qlthongtintuyendung) {
+        this.qlthongtintuyendung = qlthongtintuyendung;
+    }
+
+    /**
+     * @return the danhmucnganhnghe
+     */
+    public Danhmucnganhnghe getDanhmucnganhnghe() {
+        return danhmucnganhnghe;
+    }
+
+    /**
+     * @param danhmucnganhnghe the danhmucnganhnghe to set
+     */
+    public void setDanhmucnganhnghe(Danhmucnganhnghe danhmucnganhnghe) {
+        this.danhmucnganhnghe = danhmucnganhnghe;
+    }
+
+    /**
+     * @return the qlthongtindk
+     */
+    public QLthongtindk getQlthongtindk() {
+        return qlthongtindk;
+    }
+
+    /**
+     * @param qlthongtindk the qlthongtindk to set
+     */
+    public void setQlthongtindk(QLthongtindk qlthongtindk) {
+        this.qlthongtindk = qlthongtindk;
+    }
+
+    
 }

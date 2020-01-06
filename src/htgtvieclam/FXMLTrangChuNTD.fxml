@@ -12,12 +12,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="766.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLTrangChuNTVController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="608.0" prefWidth="766.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLTrangChuNTDController">
    <center>
       <VBox prefHeight="579.0" prefWidth="739.0" styleClass="vboxNTV" BorderPane.alignment="CENTER">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtNTV" text="Hệ thống giới thiệu việc làm" wrappingWidth="509.90625" />
-            <Label text="Người tìm việc" textFill="#162140" />
+            <Label text="Nhà tuyển dụng" textFill="#162140" />
             <TextField fx:id="txtTimviec" prefHeight="17.0" prefWidth="590.0" promptText="Nhập tên công việc " />
             <ComboBox fx:id="cbDanhmuc" prefHeight="44.0" prefWidth="775.0" promptText="Chọn ngành nghề">
                <cursor>
@@ -29,8 +29,8 @@
                </cursor></ComboBox>
             <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
                <columns>
-                  <TableColumn fx:id="colTenVL" prefWidth="161.0" text="Tên việc làm" />
-                  <TableColumn fx:id="colNhaTuyenDung" prefWidth="178.0" text="Nhà tuyển dụng" />
+                  <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên người tìm việc" />
+                  <TableColumn fx:id="colNhaTuyenDung" prefWidth="140.0" text="Kinh nghiệm" />
                   <TableColumn fx:id="colLuong" prefWidth="120.0" text="Mức lương " />
                   <TableColumn fx:id="colTinhThanh" prefWidth="130.0" text="Tỉnh thành " />
                   <TableColumn fx:id="colNgayDang" prefWidth="166.0" text="Ngày đăng tin" />
@@ -40,11 +40,11 @@
       </VBox>
    </center>
    <top>
-      <HBox prefHeight="30.0" prefWidth="200.0" styleClass="TrangChuNTV" BorderPane.alignment="CENTER">
+      <HBox prefHeight="30.0" prefWidth="200.0" styleClass="TrangChuNTD" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#hienThiDangNhap" styleClass="TrangChuNTV" text="ĐĂNG NHẬP" />
-            <Button mnemonicParsing="false" onAction="#hienThiDangKi" styleClass="TrangChuNTV" text="ĐĂNG KÝ" />
-            <Button mnemonicParsing="false" onAction="#hienThiTrangChuNTD" styleClass="TrangChuNTV" text="TRANG NHÀ TUYỂN DỤNG" />
+            <Button mnemonicParsing="false" onAction="#hienThiDangNhap" styleClass="WhiteText" text="ĐĂNG NHẬP" />
+            <Button layoutX="10.0" layoutY="11.0" mnemonicParsing="false" onAction="#hienThiDangKi" styleClass="WhiteText" text="ĐĂNG KÝ" />
+            <Button layoutX="70.0" layoutY="11.0" mnemonicParsing="false" onAction="#hienThiTrangChuNTV" styleClass="WhiteText" text="TRANG NGƯỜI TÌM VIỆC" />
          </children>
       </HBox>
    </top>
