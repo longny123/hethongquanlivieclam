@@ -2,16 +2,13 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/longn/Desktop/hethongquanlivieclam/src/htgtvieclam/FXMLDangNhapController.java</file>
+            <file>file:/C:/Users/longn/Desktop/hethongquanlivieclam/src/htgtvieclam/FXMLTrangChuNTVController.java</file>
             <file>file:/C:/Users/longn/Desktop/hethongquanlivieclam/src/htgtvieclam/FXMLTrangChuNTDController.java</file>
             <file>file:/C:/Users/longn/Desktop/hethongquanlivieclam/src/htgtvieclam/Utils.java</file>
             <file>file:/C:/Users/longn/Desktop/hethongquanlivieclam/src/htgtvieclam/pojo/Vieclam.java</file>
             <file>file:/C:/Users/longn/Desktop/hethongquanlivieclam/src/htgtvieclam/pojo/Nhatuyendung.java</file>
         </group>
-=======
-        <group/>
->>>>>>> e75029cdd8fc3572f6bf0dc7e44865d087a63a8b
     </open-files>
 </project-private>

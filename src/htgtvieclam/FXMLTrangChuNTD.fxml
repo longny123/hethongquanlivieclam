@@ -57,10 +57,10 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <TextField promptText="NHẬP TÊN NGƯỜI TÌM VIỆC" />
+            <TextField fx:id="txtTimviec" promptText="NHẬP TÊN CÔNG VIỆC" />
             <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
                <columns>
-                  <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên nhà tuyển dụng" />
+                  <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên công việc" />
                   <TableColumn fx:id="colLuong" prefWidth="158.0" text="Mức lương " />
                   <TableColumn fx:id="colTinhThanh" prefWidth="156.0" text="Tỉnh thành " />
                   <TableColumn fx:id="colNgayDang" prefWidth="173.0" text="Ngày đăng tin" />

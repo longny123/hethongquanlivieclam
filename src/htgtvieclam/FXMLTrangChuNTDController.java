@@ -69,6 +69,8 @@ public class FXMLTrangChuNTDController implements Initializable {
     @FXML
     private TextField txtLuong;
     @FXML
+    private TextField txtTimviec;
+    @FXML
     private TableColumn colTenVL;
     @FXML
     private TableColumn colLuong;
@@ -99,9 +101,9 @@ public class FXMLTrangChuNTDController implements Initializable {
         this.colTinhThanh.setCellValueFactory(new PropertyValueFactory("diachi"));
         this.colNgayDang.setCellValueFactory(new PropertyValueFactory("ngaydang"));
         this.tvVieclam.setItems(this.getVieclam(""));
-//         this.txtTimviec.textProperty().addListener(p -> {
-//            this.reloadTable(this.txtTimviec.getText());
-//        });
+         this.txtTimviec.textProperty().addListener(p -> {
+            this.reloadTable(this.txtTimviec.getText());
+        });
     }    
     
 //      private void getDanhMuc() throws SQLException{
