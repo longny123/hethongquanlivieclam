@@ -9,16 +9,9 @@ import htgtvieclam.pojo.Danhmucnganhnghe;
 import htgtvieclam.pojo.Vieclam;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,14 +28,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.hibernate.Session;
-import htgtvieclam.HibernateUtils;
-import java.util.UUID;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import org.hibernate.Criteria;
@@ -79,22 +66,7 @@ public class FXMLTrangChuNTVController implements Initializable {
     
     
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-//          this.txtTimviec.textProperty().addListener(et -> {
-//            this.tvVieclam.getItems().clear();
-//            try {
-//                this.tvVieclam.setItems(FXCollections.observableArrayList(
-//                        Utils.getViecLam(this.txtTimviec.getText()))
-//                );
-//            } catch (SQLException ex) {
-//                Logger.getLogger(FXMLTrangChuNTVController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        });
-//        try {
-//            getDanhMuc();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(FXMLTrangChuNTVController.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+
         this.colTenVL.setCellValueFactory(new PropertyValueFactory("tenvieclam"));
         this.colNhaTuyenDung.setCellValueFactory(new PropertyValueFactory("id_nhatuyendung"));
         this.colLuong.setCellValueFactory(new PropertyValueFactory("luong"));
@@ -105,21 +77,6 @@ public class FXMLTrangChuNTVController implements Initializable {
             this.reloadTable(this.txtTimviec.getText());
         });
     }    
-    
-//      private void getDanhMuc() throws SQLException{
-//            List<Danhmucnganhnghe> cats = new ArrayList<>();
-//
-//            Connection conn = HibernateUtils.getConn();
-//            Statement stm = conn.createStatement();
-//
-//            ResultSet rs = stm.executeQuery("SELECT * FROM danhmucnganhnghe");
-//            while (rs.next()) {
-//               Danhmucnganhnghe dm = new Danhmucnganhnghe(rs.getInt("iddanhmuc"),rs.getString("tendanhmuc"));
-//               
-//                cbDanhmuc.getItems().add(dm);
-//            }
-//
-//    }
      
       
     public void hienThiTrangChuNTD(ActionEvent event) throws IOException {   
@@ -232,43 +189,7 @@ public class FXMLTrangChuNTVController implements Initializable {
             }
         }); 
     }
-    
-//    private void loadQuestion() {
-//        TableColumn clContent = new TableColumn("Tên việc làm");
-//        clContent.setCellValueFactory(new PropertyValueFactory("tenvieclam"));
-//        
-//        TableColumn clCat = new TableColumn("Tên danh mục");
-//        clCat.setCellValueFactory(new PropertyValueFactory("cateNameView"));
-//        
-//        TableColumn colAction = new TableColumn();
-//        colAction.setCellFactory(p -> {
-//            
-//            Button btn = new Button("Xóa");
-//            
-//            btn.setOnAction(et -> {
-//                Alert a = Utils.getAlert("Ban chac chan xoa khong?", Alert.AlertType.CONFIRMATION);
-//                a.showAndWait().ifPresent(rs -> {
-//                    if (rs == ButtonType.OK) {
-//                        TableCell cl = (TableCell)((Button)et.getSource()).getParent();
-//                        Vieclam vl = (Vieclam)cl.getTableRow().getItem();
-//
-//                        if (Utils.deleteVieclam(vl) == true)
-//                            Utils.getAlert("Delete succcessful!!!", Alert.AlertType.INFORMATION).show();
-//                        else
-//                            Utils.getAlert("Delete failed!!!", Alert.AlertType.ERROR).show();
-//                    }
-//                });
-//                
-//            });
-//            
-//            TableCell cell = new TableCell();
-//            cell.setGraphic(btn);
-//            return cell;
-//        });
-//        
-//        this.tvVieclam.getColumns().addAll(clContent, clCat,  colAction);
-//        this.tvVieclam.setItems(FXCollections.observableArrayList(Utils.getVieclam()));
-//    }
+
     private ObservableList<Vieclam> getVieclam(String kw){
         Session session = HibernateUtils.getSessionFactory().openSession();
         Criteria cr = session.createCriteria(Vieclam.class);

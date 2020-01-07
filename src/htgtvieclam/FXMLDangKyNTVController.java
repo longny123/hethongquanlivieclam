@@ -138,6 +138,9 @@ public class FXMLDangKyNTVController implements Initializable {
                 tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Người tìm việc");
                 session.save(tk);
                 trans.commit();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Tạo thành công");
+                alert.show();
             }
             catch (HibernateException ex){
                 if (trans != null)

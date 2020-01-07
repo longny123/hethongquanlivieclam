@@ -34,7 +34,6 @@ import org.hibernate.Transaction;
  * @author DELL
  */
 public class FXMLDangKyNTDController implements Initializable {
-    private static SessionFactory factory;
     /**
      * Initializes the controller class.
      */
@@ -96,18 +95,55 @@ public class FXMLDangKyNTDController implements Initializable {
     
     public void DangKyHanler (ActionEvent event){
 
-        Session session = factory.openSession();
-        Transaction trans = null;
-        
-        Taikhoan tk;
-        Alert alert = null;
-        if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
+
+        Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction trans = session.beginTransaction();
+        Taikhoan tk =  null;
+        if (this.txttendangnhap.getText() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu tên đăng nhập");
+            alert.show();
+        }
+        else if (this.txtmatkhau.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu mật khẩu");
+            alert.show();
+        }
+        else if (this.txtnhaplai.getText().equals("") && txtnhaplai != txtmatkhau){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("phải nhập đúng mật khảu giống ô trên");
+            alert.show();
+        }
+        else if (this.txttencongty.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu tên công ty");
+            alert.show();
+        }
+        else if (this.txttenlienhe.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu tên liên hệ");
+            alert.show();
+        }
+        else if (this.txtthanhpho.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu thành phố");
+            alert.show();
+        }
+        else if (this.txtsdt.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu số điện thoại");
+            alert.show();
+        }
+        else if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
         {
             try{
-                trans = session.beginTransaction();
-                tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Nhà tuyển dụng");
+                String txt = "Nhà tuyển dụng";
+                tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),txt);
                 session.save(tk);
                 trans.commit();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Tạo thành công");
+                alert.show();
             }
             catch (HibernateException ex){
                 if (trans != null)
@@ -115,62 +151,6 @@ public class FXMLDangKyNTDController implements Initializable {
                 System.err.println(ex.getMessage());
             }
             finally{session.close();}
-        }
-        else if (txttendangnhap.getText() == null){
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Thiếu tên đăng nhập");
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            alert.getButtonTypes().setAll(btnDongY);
-            Optional<ButtonType> rs = alert.showAndWait();
-        }
-        else if (txtmatkhau.getText() == null){
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Thiếu tên mật khẩu");
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            alert.getButtonTypes().setAll(btnDongY);
-            Optional<ButtonType> rs = alert.showAndWait();
-        }
-        else if (txtnhaplai.getText() == null && txtnhaplai != txtmatkhau){
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Phải nhập đúng mật khảu giống ô trên");
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            alert.getButtonTypes().setAll(btnDongY);
-            Optional<ButtonType> rs = alert.showAndWait();
-        }
-        else if (txttencongty.getText() == null){
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Thiếu tên công ty");
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            alert.getButtonTypes().setAll(btnDongY);
-            Optional<ButtonType> rs = alert.showAndWait();
-        }
-        else if (txttenlienhe.getText() == null){
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Thiếu tên liên hệ");
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            alert.getButtonTypes().setAll(btnDongY);
-            Optional<ButtonType> rs = alert.showAndWait();
-        }
-        else if (txtthanhpho.getText() == null){
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Thiếu thành phố");
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            alert.getButtonTypes().setAll(btnDongY);
-            Optional<ButtonType> rs = alert.showAndWait();
-        }
-        else if (txtsdt.getText() == null){
-            alert = new Alert(Alert.AlertType.WARNING);
-            alert.setHeaderText(null);
-            alert.setContentText("Thiếu số điện thoại");
-            ButtonType btnDongY = new ButtonType("Đồng ý");
-            alert.getButtonTypes().setAll(btnDongY);
-            Optional<ButtonType> rs = alert.showAndWait();
         }
     }
 

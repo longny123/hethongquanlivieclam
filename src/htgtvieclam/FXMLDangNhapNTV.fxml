@@ -34,7 +34,11 @@
                               <Image url="@image/pass.png" />
                            </image>
                         </ImageView>
+<<<<<<< HEAD
+                        <TextField fx:id="txtmatkhau" promptText="Nhập mật khẩu" />
+=======
                         <PasswordField fx:id="txtmatkhau" promptText="Nhập mật khẩu" />
+>>>>>>> e75029cdd8fc3572f6bf0dc7e44865d087a63a8b
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" styleClass="dn_dk_button">

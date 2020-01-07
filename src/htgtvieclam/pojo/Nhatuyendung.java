@@ -18,18 +18,20 @@ import javax.persistence.*;
 public class Nhatuyendung implements Serializable {
     @Id
     @Column(name = "idnhatuyendung")
-    private int idnhatuyendung;
+    private String idnhatuyendung;
     @Column(name = "tennhatuyendung")
     private String tennhatuyendung;
     @Column(name = "sdt")
-    private int sdt;
+    private String sdt;
     @OneToMany(mappedBy = "nhatuyendung")
     private List<Vieclam> vieclam;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tendangnhap")
     private Taikhoan taikhoan;
     
-    public Nhatuyendung(int id, String ten, int sdt){
+    public Nhatuyendung(){}
+    
+    public Nhatuyendung(String id, String ten, String sdt){
         this.idnhatuyendung = id;
         this.tennhatuyendung = ten;
         this.sdt = sdt;
@@ -44,14 +46,14 @@ public class Nhatuyendung implements Serializable {
     /**
      * @return the idnhatuyendung
      */
-    public int getIdnhatuyendung() {
+    public String getIdnhatuyendung() {
         return idnhatuyendung;
     }
 
     /**
      * @param idnhatuyendung the idnhatuyendung to set
      */
-    public void setIdnhatuyendung(int idnhatuyendung) {
+    public void setIdnhatuyendung(String idnhatuyendung) {
         this.idnhatuyendung = idnhatuyendung;
     }
 
@@ -72,14 +74,14 @@ public class Nhatuyendung implements Serializable {
     /**
      * @return the sdt
      */
-    public int getSdt() {
+    public String getSdt() {
         return sdt;
     }
 
     /**
      * @param sdt the sdt to set
      */
-    public void setSdt(int sdt) {
+    public void setSdt(String sdt) {
         this.sdt = sdt;
     }
 

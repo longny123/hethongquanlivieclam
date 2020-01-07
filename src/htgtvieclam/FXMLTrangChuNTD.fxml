@@ -30,24 +30,23 @@
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
+                <RowConstraints />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên nhà tuyển dụng :" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên công ty :" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="1" />
-                  <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField GridPane.columnIndex="3" />
-                  <TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Số điện thoại : " GridPane.columnIndex="2" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Tên nhà tuyển dụng :" GridPane.rowIndex="1" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mức lương :" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtTenvieclam" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="txtLuong" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtThanhpho" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Thành phố :" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                </children>
                <padding>
                   <Insets top="5.0" />
                </padding>
             </GridPane>
-            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="163.0" styleClass="WhiteText" text="THÊM">
+            <Button mnemonicParsing="false" onAction="#themVieclamHandler" prefHeight="62.0" prefWidth="163.0" styleClass="WhiteText" text="THÊM">
                <VBox.margin>
                   <Insets top="10.0" />
                </VBox.margin>
@@ -58,14 +57,13 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <TextField promptText="NHẬP TÊN NGƯỜI TÌM VIỆC" />
+            <TextField fx:id="txtTimviec" promptText="NHẬP TÊN CÔNG VIỆC" />
             <TableView fx:id="tvVieclam" prefHeight="340.0" prefWidth="590.0">
                <columns>
-                  <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên người tìm việc" />
-                  <TableColumn fx:id="colNhaTuyenDung" prefWidth="140.0" text="Kinh nghiệm" />
-                  <TableColumn fx:id="colLuong" prefWidth="120.0" text="Mức lương " />
-                  <TableColumn fx:id="colTinhThanh" prefWidth="130.0" text="Tỉnh thành " />
-                  <TableColumn fx:id="colNgayDang" prefWidth="166.0" text="Ngày đăng tin" />
+                  <TableColumn fx:id="colTenVL" prefWidth="200.0" text="Tên công việc" />
+                  <TableColumn fx:id="colLuong" prefWidth="158.0" text="Mức lương " />
+                  <TableColumn fx:id="colTinhThanh" prefWidth="156.0" text="Tỉnh thành " />
+                  <TableColumn fx:id="colNgayDang" prefWidth="173.0" text="Ngày đăng tin" />
                </columns>
             </TableView>
          </children>

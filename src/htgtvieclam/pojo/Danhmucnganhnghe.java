@@ -6,7 +6,6 @@
 package htgtvieclam.pojo;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -14,31 +13,34 @@ import javax.persistence.*;
  * @author longn
  */
 @Entity
-@Table(name = "danhmucnganhnghe")
+@Table(name ="danhmucnganhnghe")
 public class Danhmucnganhnghe implements Serializable {
     @Id
-    @Column(name = "iddanhmucnganhnghe")
-    private int iddanhmucnganhnghe;
+    @Column(name = "iddanhmuc")
+    private String iddanhmuc;
     @Column(name = "tendanhmuc")
     private String tendanhmuc;
+
+    public Danhmucnganhnghe() {
+    }
     
-    public Danhmucnganhnghe(int id, String ten){
-        this.iddanhmucnganhnghe = id;
+    public Danhmucnganhnghe(String id, String ten){
+        this.iddanhmuc = id;
         this.tendanhmuc = ten;
     }
 
     /**
      * @return the iddanhmucnganhnghe
      */
-    public int getIddanhmucnganhnghe() {
-        return iddanhmucnganhnghe;
+    public String getIddanhmucnganhnghe() {
+        return iddanhmuc;
     }
 
     /**
      * @param iddanhmucnganhnghe the iddanhmucnganhnghe to set
      */
-    public void setIddanhmucnganhnghe(int iddanhmucnganhnghe) {
-        this.iddanhmucnganhnghe = iddanhmucnganhnghe;
+    public void setIddanhmucnganhnghe(String iddanhmucnganhnghe) {
+        this.iddanhmuc = iddanhmucnganhnghe;
     }
 
     /**

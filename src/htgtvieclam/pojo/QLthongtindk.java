@@ -17,17 +17,17 @@ import javax.persistence.*;
 @Table(name = "qlthongtindk")
 public class QLthongtindk {
     @Id
-    @Column (name = "idqlthongtin")
+    @Column (name = "idqlthongtindk")
     private int idqlthongtindk;
     @OneToMany(mappedBy = "qlthongtindk")
     private List<Nguoitimviec> idnguoitimviec;
-    private int iddanhmuc;
+    private String iddanhmuc;
     private int idvieclam;
     @Column(name = "ngaydk")
     private Date ngaydk;
     
     public QLthongtindk(){}
-    public QLthongtindk(int id, int iddm, Date ngay){
+    public QLthongtindk(int id, String iddm, Date ngay){
         this.idqlthongtindk = id;
         this.iddanhmuc = iddm;
         this.ngaydk = ngay;
@@ -64,14 +64,14 @@ public class QLthongtindk {
     /**
      * @return the iddanhmuc
      */
-    public int getIddanhmuc() {
+    public String getIddanhmuc() {
         return iddanhmuc;
     }
 
     /**
      * @param iddanhmuc the iddanhmuc to set
      */
-    public void setIddanhmuc(int iddanhmuc) {
+    public void setIddanhmuc(String iddanhmuc) {
         this.iddanhmuc = iddanhmuc;
     }
 
