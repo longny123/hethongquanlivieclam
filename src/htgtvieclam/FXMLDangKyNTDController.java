@@ -94,45 +94,64 @@ public class FXMLDangKyNTDController implements Initializable {
     }
     
     public void DangKyHanler (ActionEvent event){
-
-
         Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction trans = session.beginTransaction();
         Taikhoan tk =  null;
         if (this.txttendangnhap.getText() == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu tên đăng nhập");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtmatkhau.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu mật khẩu");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtnhaplai.getText().equals("") && txtnhaplai != txtmatkhau){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("phải nhập đúng mật khảu giống ô trên");
-            alert.show();
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Phải nhập đúng mật khảu giống ô trên");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txttencongty.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu tên công ty");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txttenlienhe.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu tên liên hệ");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtthanhpho.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu thành phố");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtsdt.getText().equals("")){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
             alert.setContentText("Thiếu số điện thoại");
-            alert.show();
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
         }
         else if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
         {
@@ -141,9 +160,12 @@ public class FXMLDangKyNTDController implements Initializable {
                 tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),txt);
                 session.save(tk);
                 trans.commit();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                Alert alert = new Alert(Alert.AlertType.WARNING);
+                alert.setHeaderText(null);
                 alert.setContentText("Tạo thành công");
-                alert.show();
+                ButtonType btnDongY = new ButtonType("Đồng ý");
+                alert.getButtonTypes().setAll(btnDongY);
+                Optional<ButtonType> rs = alert.showAndWait();
             }
             catch (HibernateException ex){
                 if (trans != null)
