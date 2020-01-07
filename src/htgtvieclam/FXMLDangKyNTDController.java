@@ -96,6 +96,7 @@ public class FXMLDangKyNTDController implements Initializable {
     
     public void DangKyHanler (ActionEvent event){
 
+<<<<<<< HEAD
          Session session = HibernateUtils.getSessionFactory().openSession();
         Transaction trans = session.beginTransaction();
         Taikhoan tk =  null;
@@ -151,6 +152,83 @@ public class FXMLDangKyNTDController implements Initializable {
                 System.err.println(ex.getMessage());
             }
             finally{session.close();}
+=======
+        Session session = factory.openSession();
+        Transaction trans = null;
+        
+        Taikhoan tk;
+        Alert alert = null;
+        if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
+        {
+            try{
+                trans = session.beginTransaction();
+                tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Nhà tuyển dụng");
+                session.save(tk);
+                trans.commit();
+            }
+            catch (HibernateException ex){
+                if (trans != null)
+                    trans.rollback();;
+                System.err.println(ex.getMessage());
+            }
+            finally{session.close();}
+        }
+        else if (txttendangnhap.getText() == null){
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Thiếu tên đăng nhập");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
+        }
+        else if (txtmatkhau.getText() == null){
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Thiếu tên mật khẩu");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
+        }
+        else if (txtnhaplai.getText() == null && txtnhaplai != txtmatkhau){
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Phải nhập đúng mật khảu giống ô trên");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
+        }
+        else if (txttencongty.getText() == null){
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Thiếu tên công ty");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
+        }
+        else if (txttenlienhe.getText() == null){
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Thiếu tên liên hệ");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
+        }
+        else if (txtthanhpho.getText() == null){
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Thiếu thành phố");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
+        }
+        else if (txtsdt.getText() == null){
+            alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText(null);
+            alert.setContentText("Thiếu số điện thoại");
+            ButtonType btnDongY = new ButtonType("Đồng ý");
+            alert.getButtonTypes().setAll(btnDongY);
+            Optional<ButtonType> rs = alert.showAndWait();
+>>>>>>> e75029cdd8fc3572f6bf0dc7e44865d087a63a8b
         }
     }
 
