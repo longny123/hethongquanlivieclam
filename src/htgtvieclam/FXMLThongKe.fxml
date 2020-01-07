@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLThongKeController">
+<StackPane fx:id="pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="htgtvieclam.FXMLThongKeController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" styleClass="ThongKe">
          <children>
@@ -17,21 +17,6 @@
                </children>
             </HBox>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="txtThongKe" text="THỐNG KÊ" wrappingWidth="251.13671875" />
-            <HBox prefHeight="368.0" prefWidth="1127.0">
-                <children>
-                    <LineChart fx:id="chart" prefHeight="396.0" prefWidth="602.0">
-                        <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                        </xAxis>
-                        <yAxis>
-                            <NumberAxis side="LEFT" />
-                        </yAxis>
-                    </LineChart>
-                </children>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" />
-               </VBox.margin>
-            </HBox>
          </children>
       </VBox>
    </children>

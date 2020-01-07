@@ -166,7 +166,7 @@ public class FXMLDangNhapController implements Initializable {
     public void hienThiDangNhapAdmin(ActionEvent event) throws IOException {
         Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FXMLDangNhapAdmin.fxml"));
+        loader.setLocation(getClass().getResource("FXMLThongKe.fxml"));
         Parent parent = loader.load();
         Scene scene = new Scene(parent);;
         
