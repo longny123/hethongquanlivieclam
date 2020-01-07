@@ -80,7 +80,7 @@ public class FXMLThongKeController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         int num = Utils.countSoLuongDK();
-        this.lblNumOfQuestion.setText(String.format("Số lượng câu hỏi: %d", num));
+        this.lblNumOfQuestion.setText(String.format("Số lượng người: %d", num));
         
         // Ve barchart
         List cates = Utils.countSoLuongByCate();
