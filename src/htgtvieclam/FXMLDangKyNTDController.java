@@ -96,18 +96,54 @@ public class FXMLDangKyNTDController implements Initializable {
     
     public void DangKyHanler (ActionEvent event){
 
-        Session session = factory.openSession();
-        Transaction trans = null;
-        
-        Taikhoan tk;
-        Alert alert = null;
-        if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
+         Session session = HibernateUtils.getSessionFactory().openSession();
+        Transaction trans = session.beginTransaction();
+        Taikhoan tk =  null;
+        if (this.txttendangnhap.getText() == null){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu tên đăng nhập");
+            alert.show();
+        }
+        else if (this.txtmatkhau.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu mật khẩu");
+            alert.show();
+        }
+        else if (this.txtnhaplai.getText().equals("") && txtnhaplai != txtmatkhau){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("phải nhập đúng mật khảu giống ô trên");
+            alert.show();
+        }
+        else if (this.txttencongty.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu tên công ty");
+            alert.show();
+        }
+        else if (this.txttenlienhe.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu tên liên hệ");
+            alert.show();
+        }
+        else if (this.txtthanhpho.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu thành phố");
+            alert.show();
+        }
+        else if (this.txtsdt.getText().equals("")){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Thiếu số điện thoại");
+            alert.show();
+        }
+        else if (this.txtmatkhau.getText() == null ? this.txtnhaplai.getText() == null : this.txtmatkhau.getText().equals(this.txtnhaplai.getText()))
         {
             try{
-                trans = session.beginTransaction();
-                tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),"Nhà tuyển dụng");
+                String txt = "Nhà tuyển dụng";
+                tk = new Taikhoan(this.txttendangnhap.getText(),this.txtmatkhau.getText(),txt);
                 session.save(tk);
                 trans.commit();
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Tạo thành công");
+                alert.show();
             }
             catch (HibernateException ex){
                 if (trans != null)
@@ -115,34 +151,6 @@ public class FXMLDangKyNTDController implements Initializable {
                 System.err.println(ex.getMessage());
             }
             finally{session.close();}
-        }
-        else if (txttendangnhap.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu tên đăng nhập");
-        }
-        else if (txtmatkhau.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu mật khẩu");
-        }
-        else if (txtnhaplai.getText() == null && txtnhaplai != txtmatkhau){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("phải nhập đúng mật khảu giống ô trên");
-        }
-        else if (txttencongty.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu tên công ty");
-        }
-        else if (txttenlienhe.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu tên liên hệ");
-        }
-        else if (txtthanhpho.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu thành phố");
-        }
-        else if (txtsdt.getText() == null){
-            alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Thiếu số điện thoại");
         }
     }
 

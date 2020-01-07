@@ -23,7 +23,7 @@
                               <Image url="@image/user.png" />
                            </image>
                         </ImageView>
-                        <TextField promptText="Nhập tên đăng nhập" />
+                        <TextField fx:id="txttendangnhap" promptText="Nhập tên đăng nhập" />
                      </children>
                   </HBox>
                   <HBox layoutX="20.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0" styleClass="dn_pass">
@@ -33,7 +33,7 @@
                               <Image url="@image/pass.png" />
                            </image>
                         </ImageView>
-                        <TextField promptText="Nhập mật khẩu" />
+                        <TextField fx:id="txtmatkhau" promptText="Nhập mật khẩu" />
                      </children>
                   </HBox>
                   <HBox prefHeight="100.0" prefWidth="200.0" styleClass="dn_dk_button">

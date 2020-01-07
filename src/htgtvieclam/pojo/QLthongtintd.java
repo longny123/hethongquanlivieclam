@@ -20,7 +20,7 @@ public class QLthongtintd implements Serializable{
     @Column(name = "idqlthongtintd")
     private String idqlthongtintd; 
     @Column(name = "idnhatuyendung")
-    private int idnhatuyendung;
+    private String idnhatuyendung;
     @Column(name = "idvieclam")
     private String idvieclam;
     @Column(name = "ngaydangki")
@@ -28,7 +28,7 @@ public class QLthongtintd implements Serializable{
 
     public QLthongtintd(){}
     
-    public QLthongtintd(String idtd, int idntd, String idvl ,Date ngaydk){
+    public QLthongtintd(String idtd, String idntd, String idvl ,Date ngaydk){
         this.idqlthongtintd = idtd;
         this.idnhatuyendung = idntd;
         this.idvieclam = idvl;
@@ -40,14 +40,14 @@ public class QLthongtintd implements Serializable{
     /**
      * @return the idnhatuyendung
      */
-    public int getIdnhatuyendung() {
+    public String getIdnhatuyendung() {
         return idnhatuyendung;
     }
 
     /**
      * @param idnhatuyendung the idnhatuyendung to set
      */
-    public void setIdnhatuyendung(int idnhatuyendung) {
+    public void setIdnhatuyendung(String idnhatuyendung) {
         this.idnhatuyendung = idnhatuyendung;
     }
 

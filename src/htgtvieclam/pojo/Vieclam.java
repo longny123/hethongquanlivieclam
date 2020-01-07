@@ -17,13 +17,13 @@ import static org.hibernate.FetchMode.LAZY;
 @Table(name = "vieclam")
 public class Vieclam implements Serializable{
     @Id
-    private int idvieclam;
+    private String idvieclam;
     @Column(name = "tenvieclam")
     private String tenvieclam;
     @Column(name = "vitri")
     private String vitri;
     @Column(name = "luong")
-    private int luong;
+    private String luong;
     @Column(name = "diachi")
     private String diachi;
     @Column(name = "ngaydang")
@@ -33,13 +33,19 @@ public class Vieclam implements Serializable{
     private Nhatuyendung nhatuyendung;
     
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "iddungmuc")
+    @JoinColumn(name = "iddanhmuc")
     private Danhmucnganhnghe danhmucnganhnghe;
     
     public Vieclam(){}
   
+    public Vieclam (String idvieclam, String ten,String luong,String diachi){
+        this.idvieclam = idvieclam;
+        this.tenvieclam = ten;
+        this.luong = luong;
+        this.diachi = diachi;
+    }
     
-    public Vieclam (int idvieclam, String ten, String vitri,int luong,String diachi){
+    public Vieclam (String idvieclam, String ten, String vitri,String luong,String diachi){
         this.idvieclam = idvieclam;
         this.tenvieclam = ten;
         this.vitri = vitri;
@@ -53,14 +59,14 @@ public class Vieclam implements Serializable{
     /**
      * @return the idvieclam
      */
-    public int getIdvieclam() {
+    public String getIdvieclam() {
         return idvieclam;
     }
 
     /**
      * @param idvieclam the idvieclam to set
      */
-    public void setIdvieclam(int idvieclam) {
+    public void setIdvieclam(String idvieclam) {
         this.idvieclam = idvieclam;
     }
 
@@ -95,14 +101,14 @@ public class Vieclam implements Serializable{
     /**
      * @return the luong
      */
-    public int getLuong() {
+    public String getLuong() {
         return luong;
     }
 
     /**
      * @param luong the luong to set
      */
-    public void setLuong(int luong) {
+    public void setLuong(String luong) {
         this.luong = luong;
     }
 

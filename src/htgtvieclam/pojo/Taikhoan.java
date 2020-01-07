@@ -24,11 +24,12 @@ public class Taikhoan implements Serializable {
     @Column(name = "loainguoidung")
     private String loainguoidung;
 
+    public Taikhoan (){}
     
-    public Taikhoan(String tendangnhap, String matkhau, String loainguuoidung){
+    public Taikhoan(String tendangnhap, String matkhau, String lnd){
         this.tendangnhap = tendangnhap;
         this.matkhau = matkhau;
-        this.loainguoidung = loainguoidung;
+        this.loainguoidung = lnd;
     }
 
     /**

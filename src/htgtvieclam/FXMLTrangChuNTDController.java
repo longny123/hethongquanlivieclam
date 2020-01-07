@@ -36,6 +36,9 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import org.hibernate.Session;
 import htgtvieclam.HibernateUtils;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.UUID;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -60,13 +63,13 @@ public class FXMLTrangChuNTDController implements Initializable {
     @FXML
     private TableView<Vieclam> tvVieclam;
     @FXML
-    private TextField txtTimviec;
+    private TextField txtTenvieclam;
     @FXML
-    private ComboBox <Danhmucnganhnghe> cbDanhmuc;
+    private TextField txtThanhpho;
+    @FXML
+    private TextField txtLuong;
     @FXML
     private TableColumn colTenVL;
-    @FXML
-    private TableColumn colNhaTuyenDung;
     @FXML
     private TableColumn colLuong;
     @FXML
@@ -92,14 +95,13 @@ public class FXMLTrangChuNTDController implements Initializable {
 //            Logger.getLogger(FXMLTrangChuNTVController.class.getName()).log(Level.SEVERE, null, ex);
 //        }
         this.colTenVL.setCellValueFactory(new PropertyValueFactory("tenvieclam"));
-        this.colNhaTuyenDung.setCellValueFactory(new PropertyValueFactory("id_nhatuyendung"));
         this.colLuong.setCellValueFactory(new PropertyValueFactory("luong"));
         this.colTinhThanh.setCellValueFactory(new PropertyValueFactory("diachi"));
         this.colNgayDang.setCellValueFactory(new PropertyValueFactory("ngaydang"));
         this.tvVieclam.setItems(this.getVieclam(""));
-         this.txtTimviec.textProperty().addListener(p -> {
-            this.reloadTable(this.txtTimviec.getText());
-        });
+//         this.txtTimviec.textProperty().addListener(p -> {
+//            this.reloadTable(this.txtTimviec.getText());
+//        });
     }    
     
 //      private void getDanhMuc() throws SQLException{
@@ -229,42 +231,7 @@ public class FXMLTrangChuNTDController implements Initializable {
         }); 
     }
     
-//    private void loadQuestion() {
-//        TableColumn clContent = new TableColumn("Tên việc làm");
-//        clContent.setCellValueFactory(new PropertyValueFactory("tenvieclam"));
-//        
-//        TableColumn clCat = new TableColumn("Tên danh mục");
-//        clCat.setCellValueFactory(new PropertyValueFactory("cateNameView"));
-//        
-//        TableColumn colAction = new TableColumn();
-//        colAction.setCellFactory(p -> {
-//            
-//            Button btn = new Button("Xóa");
-//            
-//            btn.setOnAction(et -> {
-//                Alert a = Utils.getAlert("Ban chac chan xoa khong?", Alert.AlertType.CONFIRMATION);
-//                a.showAndWait().ifPresent(rs -> {
-//                    if (rs == ButtonType.OK) {
-//                        TableCell cl = (TableCell)((Button)et.getSource()).getParent();
-//                        Vieclam vl = (Vieclam)cl.getTableRow().getItem();
-//
-//                        if (Utils.deleteVieclam(vl) == true)
-//                            Utils.getAlert("Delete succcessful!!!", Alert.AlertType.INFORMATION).show();
-//                        else
-//                            Utils.getAlert("Delete failed!!!", Alert.AlertType.ERROR).show();
-//                    }
-//                });
-//                
-//            });
-//            
-//            TableCell cell = new TableCell();
-//            cell.setGraphic(btn);
-//            return cell;
-//        });
-//        
-//        this.tvVieclam.getColumns().addAll(clContent, clCat,  colAction);
-//        this.tvVieclam.setItems(FXCollections.observableArrayList(Utils.getVieclam()));
-//    }
+
     private ObservableList<Vieclam> getVieclam(String kw){
         Session session = HibernateUtils.getSessionFactory().openSession();
         Criteria cr = session.createCriteria(Vieclam.class);
@@ -283,7 +250,22 @@ public class FXMLTrangChuNTDController implements Initializable {
             this.tvVieclam.getItems().clear();
             this.tvVieclam.setItems(this.getVieclam(kw));
         }
-    private void loadVieclam(String keyword){
-        Session session = HibernateUtils.getSessionFactory().openSession();
+    public void themVieclamHandler() throws ParseException
+    {
+        String idn  = UUID.randomUUID().toString();
+        Vieclam vieclam = new Vieclam(idn, this.txtTenvieclam.getText(), this.txtLuong.getText(), this.txtThanhpho.getText());
+        
+        if (Utils.addorUpdateVieclam(vieclam) == true)
+        {
+            reloadTable("");
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Thêm độc giả thành công");
+            a.show();
+        }
+        else {
+            Alert a = new Alert(Alert.AlertType.INFORMATION);
+            a.setContentText("Thêm độc giả thất bại");
+            a.show();
+        }      
     }
 }
