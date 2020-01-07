@@ -16,7 +16,7 @@ VBox {
     -fx-font-size:20;
 }
 
-VBox.Admin_NTV, VBox.Admin_NTD, VBox.NTV_Update {
+VBox.Admin_NTV, VBox.Admin_NTD, VBox.NTV_Update, VBox.ThongKe {
     -fx-alignment: TOP_CENTER;
     -fx-padding: 3;
     -fx-spacing: 2;
@@ -143,4 +143,12 @@ Text.txtTitleAdmin_NTD, Text.txtTitleAdmin_NTV {
 GridPane.NTV_Update {
     -fx-vgap: 20;
     -fx-hgap: 20;
+}
+
+Text.txtThongKe {
+    -fx-alignment: CENTER;
+    -fx-fill: blue;
+    -fx-stroke: black;
+    -fx-stroke-width: 0.8;
+    -fx-font-size: 50;
 }
